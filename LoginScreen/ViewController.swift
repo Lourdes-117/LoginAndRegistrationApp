@@ -176,6 +176,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
 		self.present(forgorPasswordAlert, animated: true, completion: nil)
 	}
+	
     @IBAction func onClickSignupButton(_ sender: Any) {
 		guard let registrationPage1 = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationPage1Identity") else {
 			print("Cannot find RegistrationPage1 View Controller")
