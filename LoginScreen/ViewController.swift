@@ -159,8 +159,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 			let storyBoard = UIStoryboard(name: "Main", bundle:  nil)
 
-			guard let welcomeScreen = storyBoard .instantiateViewController(withIdentifier : "WelcomeScreenIdentifier") as? WelcomeScreenClass else {
-				print("Coldn't find the view controller")
+			guard let welcomeScreen = storyBoard.instantiateViewController(withIdentifier : "WelcomeScreenIdentifier") as? WelcomeScreenClass else {
+				print("Coldn't find the WelcmeScreen view controller")
 				return
 			}
 			self.navigationController?.pushViewController(welcomeScreen, animated: true)
@@ -176,4 +176,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
 		self.present(forgorPasswordAlert, animated: true, completion: nil)
 	}
+    @IBAction func onClickSignupButton(_ sender: Any) {
+		guard let registrationPage1 = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationPage1Identity") else {
+			print("Cannot find RegistrationPage1 View Controller")
+			return;
+		}
+		self.present(registrationPage1, animated: true, completion: nil)
+    }
 }

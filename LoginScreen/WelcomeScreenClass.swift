@@ -9,12 +9,8 @@
 import Foundation
 import UIKit
 class WelcomeScreenClass : UIViewController {
-    override func viewDidAppear(_ animated: Bool){
-        super.viewDidAppear(animated)
-        print("Welcome Screen Appeared")
-    }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("Welcome Screen Popped from Stack")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("View has been loaded")
     }
 }
