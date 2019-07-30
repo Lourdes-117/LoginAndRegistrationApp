@@ -19,6 +19,7 @@
 		5EB7401B22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7401A22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift */; };
 		5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402022E9BD6E00C71294 /* Colors.swift */; };
 		5EB7402B22E9D8F000C71294 /* RegistrationPage1Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */; };
+		5ED1015C22F00B380043F1F7 /* RegistrationPage2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */; };
 		5EF923F822E1A63D00DDBF82 /* WelcomeScreenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		5EB7401A22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldBottomBorderExtension.swift; sourceTree = "<group>"; };
 		5EB7402022E9BD6E00C71294 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1Class.swift; sourceTree = "<group>"; };
+		5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2Class.swift; sourceTree = "<group>"; };
 		5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */,
+				5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */,
 			);
 			path = RegistrationPages;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				5EB3C91222DF4D540039B32F /* ViewController.swift in Sources */,
 				5EB7402B22E9D8F000C71294 /* RegistrationPage1Class.swift in Sources */,
 				5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */,
+				5ED1015C22F00B380043F1F7 /* RegistrationPage2Class.swift in Sources */,
 				5E0F1AA622E5BAB10084DC9B /* GradientGeneratorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
