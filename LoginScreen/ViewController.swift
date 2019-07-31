@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //If it is Password Field
             print("Password Field Return Key")
             if(isPasswordValid()) {
-                onLoginButtonClick(passwordField!)
+                onClickLoginButton(passwordField!)
                 return true
             }
             else {return false}
@@ -92,12 +92,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		guard let userNameValidityStatusUnwrapped = userNameValidityStatus else {
 			//UserName is Valid
 			userNameField.setBottomBorder(withColor: Colors.darkBlue.cgColor);
-			errorTextView.text! = "";
+            errorTextView.isHidden = true
 			passwordField.isEnabled = true;
 			passwordField.layer.sublayers?.remove(at: 0);
 			return true
 		}
 		userNameField.setBottomBorder(withColor: Colors.darkRed.cgColor);
+        errorTextView.isHidden = true
 		errorTextView.text! = userNameValidityStatusUnwrapped;
 		applyPasswordFieldDisabledDesign();
 		return false
@@ -110,11 +111,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		guard  let passwordValidityStatusUnwrapped = passwordValidityStatus else {
 			//Password is Valid
 			passwordField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-			errorTextView.text! = ""
+			errorTextView.isHidden = true
 			return true
 		}
 		//Password in Invalid
 		passwordField.setBottomBorder(withColor: Colors.darkRed.cgColor)
+        errorTextView.isHidden = false
 		errorTextView.text! = passwordValidityStatusUnwrapped
 		return false
     }
@@ -148,14 +150,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		passwordField.setGradientBackground(startColor: Colors.lightGray, endColor: Colors.lightGray)
 	}
 
-    @IBAction func onLoginButtonClick(_ sender: Any) {
+    @IBAction func onClickLoginButton(_ sender: Any) {
     print("Login Button Has Been Clicked")
     let enteredUserName:String = userNameField.text!
     let enteredPassword:String = passwordField.text!
-    let loginFormValidationStatus:String? = LoginFormValidation.validateAllFilds(enteredUserName: enteredUserName, enteredPassword: enteredPassword)
+    let loginFormValidationStatus:String = LoginFormValidation.validateAllFilds(enteredUserName: enteredUserName, enteredPassword: enteredPassword)
 
-		guard let loginFormValidationStatusUnwrapped = loginFormValidationStatus else {
-			errorTextView.text! = ""
+		if(loginFormValidationStatus == enteredUserName){
+			print("User Authenticated")
+			errorTextView.isHidden = true
 
 			let storyBoard = UIStoryboard(name: "Main", bundle:  nil)
 
@@ -167,9 +170,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
 			print("Welcome Screen Pushed to Stack")
 			return
 		}
+
+		if(loginFormValidationStatus == "⚠️ Account Not Found"){
+			let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
+			self.present(wrongCredentialsAlert, animated: true, completion: nil)
+			errorTextView.isHidden = false
+			errorTextView.text! = "⚠️ Account Not Found"
+			return
+		}
+
 		let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Invalid Field(s) Found", buttonTitle: "Ok")
 		self.present(wrongCredentialsAlert, animated: true, completion: nil)
-		errorTextView.text = loginFormValidationStatusUnwrapped
+
+        errorTextView.isHidden = false
+		errorTextView.text = loginFormValidationStatus
 	}
 
 	@IBAction func onClickForgotPassword(_ sender: UIButton) {

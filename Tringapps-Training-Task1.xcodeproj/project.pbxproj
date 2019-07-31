@@ -20,6 +20,8 @@
 		5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402022E9BD6E00C71294 /* Colors.swift */; };
 		5EB7402B22E9D8F000C71294 /* RegistrationPage1Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */; };
 		5ED1015C22F00B380043F1F7 /* RegistrationPage2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */; };
+		5ED1016022F051D70043F1F7 /* RegistrationConfirmationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */; };
+		5ED1016222F080230043F1F7 /* RegistrationDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */; };
 		5EF923F822E1A63D00DDBF82 /* WelcomeScreenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		5EB7402022E9BD6E00C71294 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1Class.swift; sourceTree = "<group>"; };
 		5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2Class.swift; sourceTree = "<group>"; };
+		5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationClass.swift; sourceTree = "<group>"; };
+		5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataStruct.swift; sourceTree = "<group>"; };
 		5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,8 @@
 			children = (
 				5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */,
 				5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */,
+				5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */,
+				5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */,
 			);
 			path = RegistrationPages;
 			sourceTree = "<group>";
@@ -174,6 +180,8 @@
 				5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */,
 				5E0F1AA022E5ADE30084DC9B /* LoginFormValidation.swift in Sources */,
 				5E0F1AA422E5B77F0084DC9B /* AlertCreator.swift in Sources */,
+				5ED1016022F051D70043F1F7 /* RegistrationConfirmationClass.swift in Sources */,
+				5ED1016222F080230043F1F7 /* RegistrationDataStruct.swift in Sources */,
 				5E0F1AA222E5B02B0084DC9B /* FormatChecking.swift in Sources */,
 				5EF923F822E1A63D00DDBF82 /* WelcomeScreenClass.swift in Sources */,
 				5EB3C91222DF4D540039B32F /* ViewController.swift in Sources */,

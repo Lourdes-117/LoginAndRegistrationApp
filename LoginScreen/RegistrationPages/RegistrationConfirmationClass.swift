@@ -1,5 +1,5 @@
 //
-//  RegistrationConfirmationPage.swift
+//  RegistrationConfirmationClass.swift
 //  Tringapps-Training-Task1
 //
 //  Created by Tringapps on 30/07/19.
@@ -7,6 +7,74 @@
 //
 
 import UIKit
+
 class RegistrationConfirmationClass: UIViewController {
 
+    @IBOutlet weak var topBackground: UIView!
+    @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var scrollableContentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+
+    @IBOutlet weak var imageView_ProfilePicture: UIImageView!
+    @IBOutlet weak var label_Address: UILabel!
+    @IBOutlet weak var label_PhoneNumber: UILabel!
+    @IBOutlet weak var label_Email: UILabel!
+    @IBOutlet weak var label_DOB: UILabel!
+    @IBOutlet weak var label_LastName: UILabel!
+    @IBOutlet weak var label_FirstName: UILabel!
+    @IBOutlet weak var label_AboutMe: UILabel!
+    @IBOutlet weak var label_Status: UILabel!
+    public var registrationData:RegistrationData? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("RegistrationConfirmation Page Loaded")
+        applyScrollViewDesign()
+        appplyTopBackground()
+        applyOkButtonDesign()
+        applyImageViewDesign()
+        applyAllDataToLables()
+    }
+
+    private func applyScrollViewDesign() {
+        scrollableContentView.layer.cornerRadius = 15;
+        scrollableContentView.layer.shadowColor = UIColor.black.cgColor;
+        scrollableContentView.layer.shadowRadius = 5;
+        scrollableContentView.layer.shadowOpacity = 0.5;
+        scrollableContentView.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+        scrollView.layer.cornerRadius = 15;
+        scrollView.layer.shadowColor = UIColor.black.cgColor;
+        scrollView.layer.shadowRadius = 5;
+        scrollView.layer.shadowOpacity = 0.5;
+        scrollView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    }
+
+    private func applyOkButtonDesign() {
+        okButton.layer.cornerRadius = (okButton.frame.height/2)
+        okButton.setGradientBackground(startColor: Colors.darkBlue, endColor: Colors.lightBlue)
+    }
+
+    private func applyImageViewDesign(){
+        imageView_ProfilePicture.layer.cornerRadius = imageView_ProfilePicture.frame.height / 2
+    }
+
+    private func appplyTopBackground() {
+        topBackground.layer.cornerRadius = 40;
+    }
+
+    private func applyAllDataToLables(){
+        imageView_ProfilePicture.image = registrationData!.profileImage!
+        label_Status.text! = registrationData!.status
+        label_AboutMe.text! = registrationData!.aboutMe
+        label_FirstName.text! = registrationData!.firstName
+        label_LastName.text! = registrationData!.lastName
+        label_Email.text! = registrationData!.emailID
+        label_PhoneNumber.text! = registrationData!.phoneNumber
+        label_Address.text! = registrationData!.address
+    }
+
+    @IBAction func onClickPreviousButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 class LoginFormValidation {
 
-    public class func validateAllFilds(enteredUserName:String, enteredPassword:String) -> String? {
+    public class func validateAllFilds(enteredUserName:String, enteredPassword:String) -> String {
         let userNameValidityStatus:String? = isUserNameValid(enteredUserName: enteredUserName)
         if let userNameValidityStatusUnwrapped = userNameValidityStatus {
             return userNameValidityStatusUnwrapped
@@ -19,7 +19,12 @@ class LoginFormValidation {
         if let passwordValidityStatusUnwrapped = passwordValidityStatus {
             return passwordValidityStatusUnwrapped
         }
-        return nil
+
+        let authenticationStatus:Bool = authenticateAccount(enteredUserName, enteredPassword);
+        if(authenticationStatus){
+            return enteredUserName
+        }
+        return "⚠️ Account Not Found"
     }
 
     public class func isUserNameValid(enteredUserName: String)-> String? {
@@ -50,5 +55,12 @@ class LoginFormValidation {
             return "⚠️ Password is Weak"
         }
         return nil
+    }
+
+    private class func authenticateAccount(_ userName:String, _ password:String) -> Bool {
+        if(userName == "abc@tringapps.com" && password == "Pass@123"){
+            return true
+        }
+        return false
     }
 }

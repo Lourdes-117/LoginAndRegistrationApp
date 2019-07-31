@@ -9,8 +9,8 @@
 import UIKit
 
 class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var imageView_ProfilePicture: UIImageView!
 
+    @IBOutlet weak var imageView_ProfilePicture: UIImageView!
     @IBOutlet weak var error_Status: UILabel!
     @IBOutlet weak var textView_AboutMe: UITextView!
     @IBOutlet weak var textField_Status: UITextField!
@@ -18,10 +18,12 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var scrollableContentView: UIView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var topBackground: UIView!
-
     @IBOutlet weak var error_AboutMe: UILabel!
     private var validity_Status = false
     private var validity_AboutMe = false
+    private var validity_Image = false
+
+    public var registrationData:RegistrationData? = nil
 
     override func viewDidLoad() {
         print("Registration Page2 View has been Loaded")
@@ -89,6 +91,7 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         image.sourceType = UIImagePickerController.SourceType.photoLibrary
         image.allowsEditing = true
         self.present(image, animated: true){
+            self.imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
             print("Image Presented")
         }
     }
@@ -107,6 +110,26 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
             textView_AboutMe.becomeFirstResponder();
         }
         return true;
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        validity_Status = checkStatus()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        validity_AboutMe = checkAboutMe()
+    }
+
+    private func checkProfilePicture() -> Bool {
+        if(imageView_ProfilePicture.image == nil){
+            print("No image found")
+            imageView_ProfilePicture.layer.borderWidth = CGFloat.init(2.0)
+            imageView_ProfilePicture.layer.borderColor = Colors.Red.cgColor
+            return false
+        }
+        imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
+        print("Image Found")
+        return true
     }
 
     private func checkStatus() -> Bool {
@@ -142,18 +165,33 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         }
     }
 
-    @IBAction func onPreviousButtonClick(_ sender: Any) {
+    @IBAction func onClickPreviousButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func onClickRegisterButton(_ sender: Any) {
+        validity_Image = checkProfilePicture()
         validity_Status = checkStatus()
         validity_AboutMe = checkAboutMe()
-        if(validity_Status && validity_AboutMe){
-            let alert = AlertCreator.createAlert(title: "On Progress", message: "This Page is Being Built", buttonTitle: "Ok")
-            self.present(alert, animated: true, completion: nil)
+        
+        if(validity_Status && validity_AboutMe && validity_Image){
+            performSegue(withIdentifier: "registrationConfirmationSegue", sender: self)
         } else {
             let alert = AlertCreator.createAlert(title: "Invalid Input", message: "Please Check All Fields", buttonTitle: "Ok")
             self.present(alert, animated: true, completion: nil)
         }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let registrationConfirmationPage = segue.destination as? RegistrationConfirmationClass else {
+            print("Invalid Segue to Registration ConfirmationPage")
+            return;
+        }
+
+        registrationData?.profileImage = imageView_ProfilePicture.image!
+        registrationData?.status = textField_Status.text!
+        registrationData?.aboutMe = textView_AboutMe.text!
+
+        registrationConfirmationPage.registrationData = self.registrationData
     }
 }

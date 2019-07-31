@@ -247,16 +247,20 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
     }
 
     @IBAction func onClickContinueButton(_ sender: Any) {
-
-        let isAllValid = checkFirstName() && checkLastName() && checkPhoneNumber() && checkPhoneNumber() && checkPassWordStrength() && checkConfirmPassword() && checkAddress()
-        if(isAllValid) {
-            print("All Fields Are Valid")
-            let alert = AlertCreator.createAlert(title: "Valid", message: "Work Under Progress", buttonTitle: "Ok")
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
+        performSegue(withIdentifier: "registrationPage2Segue", sender: self)
+        
         let alert = AlertCreator.createAlert(title: "Invalid Input", message: "Please Check All Fields", buttonTitle: "Ok")
         self.present(alert, animated: true, completion: nil)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let registrationPage2 = segue.destination as? RegistrationPage2Class else {
+            print("Invalid Segue to Registration Page 2")
+            return;
+        }
+        let registrationData = RegistrationData.init(firstName: textField_FirstName.text!, lastName: textField_LastName.text!, dob: nil, emailID: textField_EmailId.text!, phoneNumber: textField_PhoneNumber.text!, password: textField_Password.text!, address: textView_Address.text!, profileImage: nil, status: nil, aboutMe: nil)
+        registrationPage2.registrationData = registrationData
+
     }
 
     @IBAction func onClickCancelButton(_ sender: Any) {
