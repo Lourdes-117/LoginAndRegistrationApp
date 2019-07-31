@@ -10,7 +10,7 @@ import UIKit
 struct RegistrationData {
     var firstName:String! = nil
     var lastName:String! = nil
-    var dob:String? = nil //Have not implemented it yet
+    var dob:String? = nil
     var emailID:String! = nil
     var phoneNumber:String! = nil
     var password:String! = nil

@@ -192,10 +192,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 
     @IBAction func onClickSignupButton(_ sender: Any) {
-		guard let registrationPage1 = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationPage1Identity") else {
-			print("Cannot find RegistrationPage1 View Controller")
-			return;
-		}
-		self.present(registrationPage1, animated: true, completion: nil)
+//        performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
+        guard let registrationPage1 = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationPage1Identity") else {
+            print("Cannot find RegistrationPage1 View Controller")
+            return;
+        }
+        self.present(registrationPage1, animated: true, completion: nil)
     }
 }

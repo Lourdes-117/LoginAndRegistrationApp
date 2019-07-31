@@ -72,6 +72,20 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
         textField_ConfirmPassword.isEnabled = false
         textField_ConfirmPassword.setGradientBackground(startColor: Colors.lightGray, endColor: Colors.lightGray)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
+    }
+
+    @objc private func moveScrollViewUp(notification: Notification) {
+        print("This will change the view")
+
+        guard let keyboardScreenEndFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if(notification.name == UIResponder.keyboardWillHideNotification){
+            scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: CGFloat.zero, left: CGFloat.zero, bottom: keyboardViewEndFrame.height, right: CGFloat.zero)
+        }
     }
 
     private func applyScrollViewDesign() {
@@ -246,8 +260,20 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
         }
     }
 
+    private func getDateFromDatePicker() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let dateOfBorth = formatter.string(from: datePicker_Date.date)
+        return dateOfBorth
+    }
+
     @IBAction func onClickContinueButton(_ sender: Any) {
-        performSegue(withIdentifier: "registrationPage2Segue", sender: self)
+        
+        let isAllValid = checkFirstName() && checkLastName() && checkPhoneNumber() && checkPhoneNumber() && checkPassWordStrength() && checkConfirmPassword() && checkAddress()
+        if(isAllValid) {
+            print("All Fields Are Valid")
+            performSegue(withIdentifier: "registrationPage2Segue", sender: self)
+        }
         
         let alert = AlertCreator.createAlert(title: "Invalid Input", message: "Please Check All Fields", buttonTitle: "Ok")
         self.present(alert, animated: true, completion: nil)
@@ -258,12 +284,15 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
             print("Invalid Segue to Registration Page 2")
             return;
         }
-        let registrationData = RegistrationData.init(firstName: textField_FirstName.text!, lastName: textField_LastName.text!, dob: nil, emailID: textField_EmailId.text!, phoneNumber: textField_PhoneNumber.text!, password: textField_Password.text!, address: textView_Address.text!, profileImage: nil, status: nil, aboutMe: nil)
+        let registrationData = RegistrationData.init(firstName: textField_FirstName.text!, lastName: textField_LastName.text!, dob: getDateFromDatePicker(), emailID: textField_EmailId.text!, phoneNumber: textField_PhoneNumber.text!, password: textField_Password.text!, address: textView_Address.text!, profileImage: nil, status: nil, aboutMe: nil)
         registrationPage2.registrationData = registrationData
 
     }
 
     @IBAction func onClickCancelButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: {print("Registration Page 1 has been dismissed")})
+        self.dismiss(animated: true, completion: nil)
+    }
+    deinit {
+        print("Registration Page 1 is safe from memory leak")
     }
 }

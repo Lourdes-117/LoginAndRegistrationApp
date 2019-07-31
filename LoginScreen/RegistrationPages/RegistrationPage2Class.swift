@@ -23,6 +23,7 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     private var validity_AboutMe = false
     private var validity_Image = false
 
+    @IBOutlet weak var error_ProfilePicture: UILabel!
     public var registrationData:RegistrationData? = nil
 
     override func viewDidLoad() {
@@ -36,10 +37,26 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
 
         textView_AboutMe.delegate = self
         textField_Status.delegate = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
+    }
+
+    @objc private func moveScrollViewUp(notification: Notification) {
+        print("This will change the view")
+
+        guard let keyboardScreenEndFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        if(notification.name == UIResponder.keyboardWillHideNotification){
+            scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: CGFloat.zero, left: CGFloat.zero, bottom: keyboardViewEndFrame.height, right: CGFloat.zero)
+        }
     }
 
     private func applyImageViewDesign(){
         imageView_ProfilePicture.layer.cornerRadius = imageView_ProfilePicture.frame.height / 2
+        imageView_ProfilePicture.clipsToBounds = true
     }
 
     private func applyScrollViewDesign() {
@@ -92,6 +109,9 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         image.allowsEditing = true
         self.present(image, animated: true){
             self.imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
+        self.error_ProfilePicture.isHidden = false
+        self.error_ProfilePicture.textColor = Colors.Green
+        self.error_ProfilePicture.text! = "Valid"
             print("Image Presented")
         }
     }
@@ -125,8 +145,14 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
             print("No image found")
             imageView_ProfilePicture.layer.borderWidth = CGFloat.init(2.0)
             imageView_ProfilePicture.layer.borderColor = Colors.Red.cgColor
+            error_ProfilePicture.isHidden = false
+            error_ProfilePicture.textColor = Colors.Red
+            error_ProfilePicture.text! = "Pleaes Upload a Picture"
             return false
         }
+        error_ProfilePicture.isHidden = false
+        error_ProfilePicture.textColor = Colors.Green
+        error_ProfilePicture.text! = "Valid"
         imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
         print("Image Found")
         return true
@@ -166,7 +192,10 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     }
 
     @IBAction func onClickPreviousButton(_ sender: Any) {
+        removeNotificationCenter()
         self.dismiss(animated: true, completion: nil)
+        print("Previous Button Clicked")
+        
     }
     
     @IBAction func onClickRegisterButton(_ sender: Any) {
@@ -182,16 +211,24 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         }
     }
 
+    private func removeNotificationCenter() {
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
+        NotificationCenter.default.removeObserver(UIResponder.keyboardWillChangeFrameNotification)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let registrationConfirmationPage = segue.destination as? RegistrationConfirmationClass else {
             print("Invalid Segue to Registration ConfirmationPage")
             return;
         }
-
+        removeNotificationCenter()
         registrationData?.profileImage = imageView_ProfilePicture.image!
         registrationData?.status = textField_Status.text!
         registrationData?.aboutMe = textView_AboutMe.text!
 
         registrationConfirmationPage.registrationData = self.registrationData
+    }
+    deinit {
+        print("Registration Page 2 is safe from memory leak")
+        removeNotificationCenter()
     }
 }

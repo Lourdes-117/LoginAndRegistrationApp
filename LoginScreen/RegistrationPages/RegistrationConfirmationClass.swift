@@ -69,6 +69,7 @@ class RegistrationConfirmationClass: UIViewController {
         label_AboutMe.text! = registrationData!.aboutMe
         label_FirstName.text! = registrationData!.firstName
         label_LastName.text! = registrationData!.lastName
+        label_DOB.text! = registrationData!.dob!
         label_Email.text! = registrationData!.emailID
         label_PhoneNumber.text! = registrationData!.phoneNumber
         label_Address.text! = registrationData!.address
@@ -76,5 +77,11 @@ class RegistrationConfirmationClass: UIViewController {
 
     @IBAction func onClickPreviousButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func onClickOkButton(_ sender: Any) { self.presentingViewController?.self.presentingViewController?.self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+
+    deinit{
+        print("Confirmation Page is safe from memory leaks")
     }
 }
