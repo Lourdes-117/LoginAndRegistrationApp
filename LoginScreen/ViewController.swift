@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var topBackground: UIView!
     @IBOutlet weak var loginBackground: UIView!
     @IBOutlet weak var errorTextView: UILabel!
+	@IBOutlet weak var scrollView: UIScrollView!
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -38,11 +39,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         userNameField.delegate = self
         passwordField.delegate = self
         appplyTopBackground();
-        applyLoginBackgroundDesign();
+        applyScrollableLoginBackgroundDesign();
         applyLoginButtonDesign();
         applyTextFieldsDesign();
         applyPasswordFieldDisabledDesign();
+
+		NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
     }
+
+	@objc private func moveScrollViewUp(notification: Notification) {
+		print("View Will Be Scrolled Up")
+
+		guard let keyboardScreenEndFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+			print("Nothing has been changed")
+			return
+
+		}
+		let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+		if(notification.name == UIResponder.keyboardWillHideNotification){
+			scrollView.contentInset = UIEdgeInsets.zero
+			print("Scrolled Back To Normal")
+		} else {
+			print("Scrolling Above The Keyboard Height")
+			scrollView.contentInset = UIEdgeInsets(top: CGFloat.zero, left: CGFloat.zero, bottom: keyboardViewEndFrame.height, right: CGFloat.zero)
+		}
+	}
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("Touches Happening Outside TextField")
@@ -123,12 +145,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-	private func applyLoginBackgroundDesign() {
+	private func applyScrollableLoginBackgroundDesign() {
 		loginBackground.layer.cornerRadius = 15;
 		loginBackground.layer.shadowColor = UIColor.black.cgColor;
 		loginBackground.layer.shadowRadius = 5;
 		loginBackground.layer.shadowOpacity = 0.5;
 		loginBackground.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+		scrollView.layer.cornerRadius = 15;
+		scrollView.layer.shadowColor = UIColor.black.cgColor;
+		scrollView.layer.shadowRadius = 5;
+		scrollView.layer.shadowOpacity = 0.5;
+		scrollView.layer.shadowOffset = CGSize(width: 2, height: 2)
 	}
 
 	private func appplyTopBackground() {
@@ -188,7 +216,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 
     @IBAction func onClickSignupButton(_ sender: Any) {
-//        performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
         performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
     }
+	deinit {
+		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+		print("LoginScreen is safe from Memory Leaks")
+	}
 }

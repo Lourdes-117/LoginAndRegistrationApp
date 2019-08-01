@@ -212,15 +212,14 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     }
 
     private func removeNotificationCenter() {
-        NotificationCenter.default.removeObserver(UIResponder.keyboardWillHideNotification)
-        NotificationCenter.default.removeObserver(UIResponder.keyboardWillChangeFrameNotification)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let registrationConfirmationPage = segue.destination as? RegistrationConfirmationClass else {
             print("Invalid Segue to Registration ConfirmationPage")
             return;
         }
-        removeNotificationCenter()
         registrationData?.profileImage = imageView_ProfilePicture.image!
         registrationData?.status = textField_Status.text!
         registrationData?.aboutMe = textView_AboutMe.text!

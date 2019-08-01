@@ -64,15 +64,15 @@ class RegistrationConfirmationClass: UIViewController {
     }
 
     private func applyAllDataToLables(){
-        imageView_ProfilePicture.image = registrationData!.profileImage!
-        label_Status.text! = registrationData!.status
-        label_AboutMe.text! = registrationData!.aboutMe
-        label_FirstName.text! = registrationData!.firstName
-        label_LastName.text! = registrationData!.lastName
+        imageView_ProfilePicture.image = registrationData!.profileImage
+        label_Status.text! = registrationData!.status!
+        label_AboutMe.text! = registrationData!.aboutMe!
+        label_FirstName.text! = registrationData!.firstName!
+        label_LastName.text! = registrationData!.lastName!
         label_DOB.text! = registrationData!.dob!
-        label_Email.text! = registrationData!.emailID
-        label_PhoneNumber.text! = registrationData!.phoneNumber
-        label_Address.text! = registrationData!.address
+        label_Email.text! = registrationData!.emailID!
+        label_PhoneNumber.text! = registrationData!.phoneNumber!
+        label_Address.text! = registrationData!.address!
     }
 
     @IBAction func onClickPreviousButton(_ sender: Any) {

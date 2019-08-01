@@ -303,6 +303,7 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        removeNotificationCenter()
         guard let registrationPage2 = segue.destination as? RegistrationPage2Class else {
             print("Invalid Segue to Registration Page 2")
             return;
@@ -315,7 +316,12 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func onClickCancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    private func removeNotificationCenter(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
     deinit {
+        removeNotificationCenter()
         print("Registration Page 1 is safe from memory leak")
     }
 }
