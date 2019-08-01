@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+	
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -34,6 +34,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		print("Login View Loaded")
         userNameField.delegate = self
         passwordField.delegate = self
         appplyTopBackground();
@@ -159,15 +160,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		if(loginFormValidationStatus == enteredUserName){
 			print("User Authenticated")
 			errorTextView.isHidden = true
-
-			let storyBoard = UIStoryboard(name: "Main", bundle:  nil)
-
-			guard let welcomeScreen = storyBoard.instantiateViewController(withIdentifier : "WelcomeScreenIdentifier") as? WelcomeScreenClass else {
-				print("Coldn't find the WelcmeScreen view controller")
-				return
-			}
-			self.navigationController?.pushViewController(welcomeScreen, animated: true)
-			print("Welcome Screen Pushed to Stack")
+			print("Welcome Screen Segue has been initiated")
+            performSegue(withIdentifier: "welcomeScreenSegueIdentity", sender: nil)
+            let loginData = UserDefaults.standard
+            loginData.set(userNameField.text!, forKey: "UserName")
 			return
 		}
 
@@ -193,10 +189,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func onClickSignupButton(_ sender: Any) {
 //        performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
-        guard let registrationPage1 = self.storyboard?.instantiateViewController(withIdentifier: "RegistrationPage1Identity") else {
-            print("Cannot find RegistrationPage1 View Controller")
-            return;
-        }
-        self.present(registrationPage1, animated: true, completion: nil)
+        performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
     }
 }

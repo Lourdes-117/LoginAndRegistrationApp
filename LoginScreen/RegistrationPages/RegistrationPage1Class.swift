@@ -168,11 +168,11 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
 
     func textViewDidEndEditing(_ textView: UITextView) {
         validity_Address = checkAddress();
-        setStatus(forLabel: error_Address, ofTextField:nil, ofTextView: textView, validityStatus: validity_Address)
     }
 
     private func checkAddress() -> Bool {
         let isValid = textView_Address.text! != ""
+        setStatus(forLabel: error_Address, ofTextField:nil, ofTextView: textView_Address, validityStatus: isValid)
         return isValid;
     }
 
@@ -228,6 +228,11 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
     }
 
     private func checkConfirmPassword() -> Bool {
+        if(textField_Password.text == ""){
+            setStatus(forLabel: error_ConfirmPassword, ofTextField:textField_ConfirmPassword, ofTextView: nil, validityStatus: false)
+            error_ConfirmPassword.isHidden = true
+            return false
+        }
         if(textField_Password.text! == textField_ConfirmPassword.text!) {
             setStatus(forLabel: error_ConfirmPassword, ofTextField:textField_ConfirmPassword, ofTextView: nil, validityStatus: true)
             error_ConfirmPassword.text! = "Password Match"
@@ -268,8 +273,26 @@ class RegistrationPage1Class: UIViewController, UITextFieldDelegate, UITextViewD
     }
 
     @IBAction func onClickContinueButton(_ sender: Any) {
-        
-        let isAllValid = checkFirstName() && checkLastName() && checkPhoneNumber() && checkPhoneNumber() && checkPassWordStrength() && checkConfirmPassword() && checkAddress()
+
+        print("Continue Button Has Been Clicked")
+        validity_FirstName = checkFirstName()
+        validity_LastName = checkLastName()
+        validity_PhoneNumber = checkPhoneNumber()
+        validity_Password = checkPassWordStrength()
+        validity_ConfirmPassword = checkConfirmPassword()
+        validity_Address = checkAddress()
+        validity_EmailID = checkEmailId()
+
+        print(validity_FirstName)
+        print(validity_LastName)
+        print(validity_PhoneNumber)
+        print(validity_Password)
+        print(validity_ConfirmPassword)
+        print(validity_Address)
+        print(validity_EmailID)
+
+        let isAllValid = validity_FirstName && validity_LastName && validity_PhoneNumber && validity_Password && validity_ConfirmPassword && validity_Address && validity_EmailID
+
         if(isAllValid) {
             print("All Fields Are Valid")
             performSegue(withIdentifier: "registrationPage2Segue", sender: self)

@@ -17,7 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Application Launched")
+        checkIfUserIsLoggedIn()
+
         return true
+    }
+
+    private func checkIfUserIsLoggedIn(){
+        print("Checking login details")
+        let loginDetails = UserDefaults.standard
+        let userName = loginDetails.string(forKey: "UserName")
+        guard  let userNameUnWrapped = userName else {
+            print("No user is logged In")
+            return
+        }
+        print("\(userNameUnWrapped) Has Logged In")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let welcomeScreen = storyBoard.instantiateViewController(withIdentifier: "WelcomeScreenIdentifier") as! WelcomeScreenClass
+        self.window?.rootViewController = welcomeScreen
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
