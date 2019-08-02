@@ -17,7 +17,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
     //InputFields
     @IBOutlet weak var textField_FirstName: UITextField!
     @IBOutlet weak var textField_LastName: UITextField!
-    @IBOutlet weak var datePicker_Date: UIDatePicker!
+    @IBOutlet weak var textField_DateOfBirth: UITextField!
     @IBOutlet weak var textField_EmailId: UITextField!
     @IBOutlet weak var textField_PhoneNumber: UITextField!
     @IBOutlet weak var textField_Password: UITextField!
@@ -33,6 +33,8 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
     @IBOutlet weak var label_PasswordStrengthIndicator: UILabel!
     @IBOutlet weak var error_ConfirmPassword: UILabel!
     @IBOutlet weak var error_Address: UILabel!
+    //DatePicker
+    private var datePicker_DateOfBirth:UIDatePicker?
 
     private var registrationData: RegistrationData = RegistrationData.init();
 
@@ -54,6 +56,8 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         applyTextFieldsDesign()
         applyTextViewDesign()
 
+        initializeDatePicker()
+
         setMaximumDateInDatePicker()
 
         //Applying Delegates
@@ -63,6 +67,20 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         textField_ConfirmPassword.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
 
         setKeyboardNotificationListeners()
+    }
+
+    private func initializeDatePicker(){
+        datePicker_DateOfBirth = UIDatePicker()
+        datePicker_DateOfBirth?.datePickerMode = .date
+        datePicker_DateOfBirth?.addTarget(self, action: #selector(datechange(datepick:)), for: .valueChanged)
+        textField_DateOfBirth.inputView = datePicker_DateOfBirth
+    }
+
+    @objc func  datechange(datepick:UIDatePicker){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        textField_DateOfBirth.text = formatter.string(from: datepick.date)
+        view.endEditing(true)
     }
 
     private func setDelegates(){
@@ -108,6 +126,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
     private func applyTextFieldsDesign(){
         textField_FirstName.applyTextFieldTheme()
         textField_LastName.applyTextFieldTheme()
+        textField_DateOfBirth.applyTextFieldTheme()
         textField_EmailId.applyTextFieldTheme()
         textField_PhoneNumber.applyTextFieldTheme()
         textField_Password.applyTextFieldTheme()
@@ -120,7 +139,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
     }
 
     private func setMaximumDateInDatePicker() {
-        datePicker_Date.maximumDate = Date()
+        datePicker_DateOfBirth?.maximumDate = Date()
     }
 
 
@@ -242,13 +261,6 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         }
     }
 
-    private func getDateFromDatePicker() -> String{
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let dateOfBorth = formatter.string(from: datePicker_Date.date)
-        return dateOfBorth
-    }
-
     @IBAction func onClickContinueButton(_ sender: Any) {
 
         print("Continue Button Has Been Clicked")
@@ -287,7 +299,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         }
         registrationData.firstName = textField_FirstName.text
         registrationData.lastName = textField_LastName.text
-        registrationData.dob = getDateFromDatePicker()
+        registrationData.dob = textField_DateOfBirth.text
         registrationData.emailID = textField_EmailId.text
         registrationData.phoneNumber = textField_EmailId.text
         registrationData.password = textField_Password.text
