@@ -37,22 +37,12 @@ class RegistrationConfirmationViewController: UIViewController {
     }
 
     private func applyScrollViewDesign() {
-        scrollableContentView.layer.cornerRadius = 15;
-        scrollableContentView.layer.shadowColor = UIColor.black.cgColor;
-        scrollableContentView.layer.shadowRadius = 5;
-        scrollableContentView.layer.shadowOpacity = 0.5;
-        scrollableContentView.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        scrollView.layer.cornerRadius = 15;
-        scrollView.layer.shadowColor = UIColor.black.cgColor;
-        scrollView.layer.shadowRadius = 5;
-        scrollView.layer.shadowOpacity = 0.5;
-        scrollView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        scrollableContentView.applyViewTheme()
+        scrollView.applyViewTheme()
     }
 
     private func applyOkButtonDesign() {
-        okButton.layer.cornerRadius = (okButton.frame.height/2)
-        okButton.setGradientBackground(startColor: Colors.darkBlue, endColor: Colors.lightBlue)
+        okButton.applyButtonTheme()
     }
 
     private func applyImageViewDesign(){
@@ -77,8 +67,6 @@ class RegistrationConfirmationViewController: UIViewController {
 
     @IBAction func onClickPreviousButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func onClickOkButton(_ sender: Any) { self.presentingViewController?.self.presentingViewController?.self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
     deinit{

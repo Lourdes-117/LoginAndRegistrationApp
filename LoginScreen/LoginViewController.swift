@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 	
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameField: UITextField!
@@ -20,7 +20,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		navigationController?.setNavigationBarHidden(true, animated: false)
+		if(userNameField.text != nil){
+			userNameField.text = nil
+		}
+		if(passwordField.text != nil){
+        	passwordField.text = nil
+		}
 		print("Login View Will Appear")
 	}
 
@@ -30,23 +35,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	}
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		print("Login View Loaded")
-        userNameField.delegate = self
-        passwordField.delegate = self
         appplyTopBackground();
         applyScrollableLoginBackgroundDesign();
-        applyLoginButtonDesign();
+        applyButtonsDesign();
         applyTextFieldsDesign();
         applyPasswordFieldDisabledDesign();
 
+		setKeyboardNotificationListeners();
+
+		setDelegates()
+
+    }
+
+	private func setKeyboardNotificationListeners() {
 		NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillHideNotification , object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(moveScrollViewUp(notification:)), name: UIResponder.keyboardWillChangeFrameNotification , object: nil)
-    }
+	}
+
+	private func setDelegates() {
+		userNameField.delegate = self
+		passwordField.delegate = self
+	}
 
 	@objc private func moveScrollViewUp(notification: Notification) {
 		print("View Will Be Scrolled Up")
@@ -114,13 +128,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let userNameValidityStatus:String? = LoginFormValidation.isUserNameValid(enteredUserName: enteredUsername)
 		guard let userNameValidityStatusUnwrapped = userNameValidityStatus else {
 			//UserName is Valid
-			userNameField.setBottomBorder(withColor: Colors.darkBlue.cgColor);
+			userNameField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor);
             errorTextView.isHidden = true
 			passwordField.isEnabled = true;
 			passwordField.layer.sublayers?.remove(at: 0);
 			return true
 		}
-		userNameField.setBottomBorder(withColor: Colors.darkRed.cgColor);
+		userNameField.setBottomBorder(withColor: Colors.DARK_RED.cgColor);
         errorTextView.isHidden = true
 		errorTextView.text! = userNameValidityStatusUnwrapped;
 		applyPasswordFieldDisabledDesign();
@@ -133,12 +147,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let passwordValidityStatus:String? = LoginFormValidation.isPasswordValid(enteredPassword: enteredPassword)
 		guard  let passwordValidityStatusUnwrapped = passwordValidityStatus else {
 			//Password is Valid
-			passwordField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
+			passwordField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
 			errorTextView.isHidden = true
 			return true
 		}
 		//Password in Invalid
-		passwordField.setBottomBorder(withColor: Colors.darkRed.cgColor)
+		passwordField.setBottomBorder(withColor: Colors.DARK_RED.cgColor)
         errorTextView.isHidden = false
 		errorTextView.text! = passwordValidityStatusUnwrapped
 		return false
@@ -146,37 +160,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 
 	private func applyScrollableLoginBackgroundDesign() {
-		loginBackground.layer.cornerRadius = 15;
-		loginBackground.layer.shadowColor = UIColor.black.cgColor;
-		loginBackground.layer.shadowRadius = 5;
-		loginBackground.layer.shadowOpacity = 0.5;
-		loginBackground.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-		scrollView.layer.cornerRadius = 15;
-		scrollView.layer.shadowColor = UIColor.black.cgColor;
-		scrollView.layer.shadowRadius = 5;
-		scrollView.layer.shadowOpacity = 0.5;
-		scrollView.layer.shadowOffset = CGSize(width: 2, height: 2)
+		loginBackground.applyViewTheme()
+		scrollView.applyViewTheme()
 	}
 
 	private func appplyTopBackground() {
 		topBackground.layer.cornerRadius = 40;	
 	}
 
-	private func applyLoginButtonDesign() {
-		loginButton.layer.cornerRadius = (loginButton.frame.height/2)
-		loginButton.setGradientBackground(startColor: Colors.darkBlue, endColor: Colors.lightBlue)
+	private func applyButtonsDesign() {
+		loginButton.applyButtonTheme()
 	}
 
 	private func applyTextFieldsDesign(){
-		userNameField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-		passwordField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
+		userNameField.applyTextFieldTheme()
+		passwordField.applyTextFieldTheme()
 	}
 
 	private func applyPasswordFieldDisabledDesign(){
 		passwordField.isEnabled = false
 		passwordField.layer.sublayers?.remove(at: 0)
-		passwordField.setGradientBackground(startColor: Colors.lightGray, endColor: Colors.lightGray)
+		passwordField.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
 	}
 
     @IBAction func onClickLoginButton(_ sender: Any) {
@@ -195,11 +199,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 			return
 		}
 
-		if(loginFormValidationStatus == "⚠️ Account Not Found"){
+		if(loginFormValidationStatus == LoginStatus.ACCOUNT_NOT_FOUND.rawValue){
 			let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
 			self.present(wrongCredentialsAlert, animated: true, completion: nil)
 			errorTextView.isHidden = false
-			errorTextView.text! = "⚠️ Account Not Found"
+			errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue
 			return
 		}
 
@@ -218,6 +222,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onClickSignupButton(_ sender: Any) {
         performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
     }
+
+	@IBAction func unwindToLoginViewController(_ unwindSegue: UIStoryboardSegue) {}
 	deinit {
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
 		NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)

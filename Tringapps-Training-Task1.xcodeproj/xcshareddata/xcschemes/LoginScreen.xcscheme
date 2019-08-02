@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5EC995AE22F4326B00B4B1F1"
+               BuildableName = "Tringapps-Training-Task1UITests.xctest"
+               BlueprintName = "Tringapps-Training-Task1UITests"
+               ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

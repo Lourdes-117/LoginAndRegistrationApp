@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+class RegistrationPage2ViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView_ProfilePicture: UIImageView!
     @IBOutlet weak var error_Status: UILabel!
@@ -32,8 +32,9 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         applyScrollViewDesign();
         appplyTopBackground();
         applyRegisterButtonDesign();
-        applyTextFieldsDesign(to: textField_Status);
+        applyTextFieldsDesign()
         applyTextViewDesign(to: textView_AboutMe)
+
 
         textView_AboutMe.delegate = self
         textField_Status.delegate = self
@@ -60,17 +61,8 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     }
 
     private func applyScrollViewDesign() {
-        scrollableContentView.layer.cornerRadius = 15;
-        scrollableContentView.layer.shadowColor = UIColor.black.cgColor;
-        scrollableContentView.layer.shadowRadius = 5;
-        scrollableContentView.layer.shadowOpacity = 0.5;
-        scrollableContentView.layer.shadowOffset = CGSize(width: 2, height: 2)
-
-        scrollView.layer.cornerRadius = 15;
-        scrollView.layer.shadowColor = UIColor.black.cgColor;
-        scrollView.layer.shadowRadius = 5;
-        scrollView.layer.shadowOpacity = 0.5;
-        scrollView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        scrollableContentView.applyViewTheme()
+        scrollView.applyViewTheme()
     }
 
     private func appplyTopBackground() {
@@ -78,18 +70,15 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
     }
 
     private func applyRegisterButtonDesign() {
-        registerButton.layer.cornerRadius = (registerButton.frame.height/2)
-        registerButton.setGradientBackground(startColor: Colors.darkBlue, endColor: Colors.lightBlue)
+        registerButton.applyButtonTheme()
     }
 
-    private func applyTextFieldsDesign(to textField: UITextField){
-        textField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-        textField.setBottomBorder(withColor: Colors.darkBlue.cgColor)
+    private func applyTextFieldsDesign(){
+        textField_Status.applyTextFieldTheme()
     }
 
     private func applyTextViewDesign(to textView: UITextView){
-        textView.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-        textView.setBottomBorder(withColor: Colors.darkBlue.cgColor)
+        textView.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -108,9 +97,9 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         image.sourceType = UIImagePickerController.SourceType.photoLibrary
         image.allowsEditing = true
         self.present(image, animated: true){
-            self.imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
+            self.imageView_ProfilePicture.layer.borderColor = Colors.GREEN.cgColor
         self.error_ProfilePicture.isHidden = false
-        self.error_ProfilePicture.textColor = Colors.Green
+        self.error_ProfilePicture.textColor = Colors.GREEN
         self.error_ProfilePicture.text! = "Valid"
             print("Image Presented")
         }
@@ -144,51 +133,30 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         if(imageView_ProfilePicture.image == nil){
             print("No image found")
             imageView_ProfilePicture.layer.borderWidth = CGFloat.init(2.0)
-            imageView_ProfilePicture.layer.borderColor = Colors.Red.cgColor
+            imageView_ProfilePicture.layer.borderColor = Colors.RED.cgColor
             error_ProfilePicture.isHidden = false
-            error_ProfilePicture.textColor = Colors.Red
+            error_ProfilePicture.textColor = Colors.RED
             error_ProfilePicture.text! = "Pleaes Upload a Picture"
             return false
         }
         error_ProfilePicture.isHidden = false
-        error_ProfilePicture.textColor = Colors.Green
+        error_ProfilePicture.textColor = Colors.GREEN
         error_ProfilePicture.text! = "Valid"
-        imageView_ProfilePicture.layer.borderColor = Colors.Green.cgColor
+        imageView_ProfilePicture.layer.borderColor = Colors.GREEN.cgColor
         print("Image Found")
         return true
     }
 
     private func checkStatus() -> Bool {
         let isValid = FormatChecking.isValidFormat(textToCheck: textField_Status.text!, format: "([A-Za-z\\s]){1,}")
-        setStatus(forLabel: error_Status, ofTextField:textField_Status, ofTextView: nil, validityStatus: isValid)
+        StatusSetter.setStatus(forLabel: error_Status, ofTextField:textField_Status, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkAboutMe() -> Bool {
         let isValid = textView_AboutMe.text! != ""
-        setStatus(forLabel: error_AboutMe, ofTextField: nil, ofTextView: textView_AboutMe, validityStatus: isValid)
+        StatusSetter.setStatus(forLabel: error_AboutMe, ofTextField: nil, ofTextView: textView_AboutMe, validityStatus: isValid)
         return isValid;
-    }
-
-    private func setStatus(forLabel label:UILabel,ofTextField textField: UITextField?, ofTextView textView:UITextView?, validityStatus IsValid:Bool) {
-        label.isHidden = false
-        if(IsValid) {
-            label.text! = "Valid"
-            label.textColor = Colors.Green
-            guard let textFieldUnwrapped = textField else {
-                textView!.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-                return
-            }
-            textFieldUnwrapped.setBottomBorder(withColor: Colors.darkBlue.cgColor)
-        } else {
-            label.text! = "Invalid"
-            label.textColor = Colors.Red
-            guard let textFieldUnwrapped = textField else {
-                textView!.setBottomBorder(withColor: Colors.Red.cgColor)
-                return
-            }
-            textFieldUnwrapped.setBottomBorder(withColor: Colors.Red.cgColor)
-        }
     }
 
     @IBAction func onClickPreviousButton(_ sender: Any) {
@@ -216,7 +184,7 @@ class RegistrationPage2Class: UIViewController, UIImagePickerControllerDelegate,
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let registrationConfirmationPage = segue.destination as? RegistrationConfirmationClass else {
+        guard let registrationConfirmationPage = segue.destination as? RegistrationConfirmationViewController else {
             print("Invalid Segue to Registration ConfirmationPage")
             return;
         }

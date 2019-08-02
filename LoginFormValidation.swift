@@ -24,20 +24,20 @@ class LoginFormValidation {
         if(authenticationStatus){
             return enteredUserName
         }
-        return "⚠️ Account Not Found"
+        return LoginStatus.ACCOUNT_NOT_FOUND.rawValue
     }
 
     public class func isUserNameValid(enteredUserName: String)-> String? {
         if enteredUserName == "" {
-            print("⚠️ UserName cannot be empty")
-            return "⚠️ UserName cannot be empty"
+            print(LoginStatus.USERNAME_EMPTY.rawValue)
+            return LoginStatus.USERNAME_EMPTY.rawValue
         }
         var isUserNameValid: Bool
         isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
         isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: "[0-9]{10}") || isUserNameValid
         if !isUserNameValid {
-            print("⚠️ UserName is not valid")
-            return "⚠️ UserName is not valid"
+            print(LoginStatus.USERNAME_INVALID.rawValue)
+            return LoginStatus.USERNAME_INVALID.rawValue
         }
         return nil
     }
@@ -45,14 +45,14 @@ class LoginFormValidation {
     public class func isPasswordValid(enteredPassword:String) -> String? {
 
         if enteredPassword == "" {
-            print("⚠️ Password cannot be empty")
-            return "⚠️ Password cannot be empty"
+            print(LoginStatus.EMPTY_PASSWORD.rawValue)
+            return LoginStatus.EMPTY_PASSWORD.rawValue
         }
         let isPasswordValid: Bool
         isPasswordValid = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}")
         if !isPasswordValid {
-            print("⚠️ Password is Weak")
-            return "⚠️ Password is Weak"
+            print(LoginStatus.PASSWORD_WEAK.rawValue)
+            return LoginStatus.PASSWORD_WEAK.rawValue
         }
         return nil
     }

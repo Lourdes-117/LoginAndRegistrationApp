@@ -10,44 +10,73 @@
 		5E0F1AA022E5ADE30084DC9B /* LoginFormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */; };
 		5E0F1AA222E5B02B0084DC9B /* FormatChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */; };
 		5E0F1AA422E5B77F0084DC9B /* AlertCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */; };
-		5E0F1AA622E5BAB10084DC9B /* GradientGeneratorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA522E5BAB10084DC9B /* GradientGeneratorExtension.swift */; };
+		5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */; };
+		5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F4BFB22F43D640097A202 /* Strings.swift */; };
 		5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C90F22DF4D540039B32F /* AppDelegate.swift */; };
-		5EB3C91222DF4D540039B32F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* ViewController.swift */; };
+		5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* LoginViewController.swift */; };
 		5EB3C91522DF4D540039B32F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91322DF4D540039B32F /* Main.storyboard */; };
 		5EB3C91722DF4D5E0039B32F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91622DF4D5E0039B32F /* Assets.xcassets */; };
 		5EB3C91A22DF4D5E0039B32F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91822DF4D5E0039B32F /* LaunchScreen.storyboard */; };
-		5EB7401B22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7401A22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift */; };
+		5EB7401B22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7401A22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift */; };
 		5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402022E9BD6E00C71294 /* Colors.swift */; };
-		5EB7402B22E9D8F000C71294 /* RegistrationPage1Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */; };
-		5ED1015C22F00B380043F1F7 /* RegistrationPage2Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */; };
-		5ED1016022F051D70043F1F7 /* RegistrationConfirmationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */; };
+		5EB7402B22E9D8F000C71294 /* RegistrationPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */; };
+		5EC995A322F3F34C00B4B1F1 /* StatusSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */; };
+		5EC995A722F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A622F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift */; };
+		5EC995A922F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A822F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift */; };
+		5EC995B222F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995B122F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift */; };
+		5ED1015C22F00B380043F1F7 /* RegistrationPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */; };
+		5ED1016022F051D70043F1F7 /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */; };
 		5ED1016222F080230043F1F7 /* RegistrationDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */; };
-		5EF923F822E1A63D00DDBF82 /* WelcomeScreenClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */; };
+		5EF923F822E1A63D00DDBF82 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5EC995B422F4326C00B4B1F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EB3C90422DF4D540039B32F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB3C90B22DF4D540039B32F;
+			remoteInfo = "Tringapps-Training-Task1";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormValidation.swift; sourceTree = "<group>"; };
 		5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatChecking.swift; sourceTree = "<group>"; };
 		5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreator.swift; sourceTree = "<group>"; };
-		5E0F1AA522E5BAB10084DC9B /* GradientGeneratorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientGeneratorExtension.swift; sourceTree = "<group>"; };
+		5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewDesignExtensions.swift; sourceTree = "<group>"; };
+		5E2F4BFB22F43D640097A202 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5EB3C90C22DF4D540039B32F /* Tringapps-Training-Task1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tringapps-Training-Task1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB3C90F22DF4D540039B32F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5EB3C91122DF4D540039B32F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		5EB3C91122DF4D540039B32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
 		5EB3C91422DF4D540039B32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EB3C91622DF4D5E0039B32F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EB3C91922DF4D5E0039B32F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EB3C91B22DF4D5E0039B32F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EB7401A22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldBottomBorderExtension.swift; sourceTree = "<group>"; };
+		5EB7401A22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItextFieldDesignExtensions.swift; sourceTree = "<group>"; };
 		5EB7402022E9BD6E00C71294 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1Class.swift; sourceTree = "<group>"; };
-		5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2Class.swift; sourceTree = "<group>"; };
-		5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationClass.swift; sourceTree = "<group>"; };
+		5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1ViewController.swift; sourceTree = "<group>"; };
+		5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSetter.swift; sourceTree = "<group>"; };
+		5EC995A622F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItextViewDesignExtensions.swift; sourceTree = "<group>"; };
+		5EC995A822F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIbuttonDesignExtension.swift; sourceTree = "<group>"; };
+		5EC995AF22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tringapps-Training-Task1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EC995B122F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tringapps_Training_Task1UITests.swift; sourceTree = "<group>"; };
+		5EC995B322F4326C00B4B1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2ViewController.swift; sourceTree = "<group>"; };
+		5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
 		5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataStruct.swift; sourceTree = "<group>"; };
-		5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenClass.swift; sourceTree = "<group>"; };
+		5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5EB3C90922DF4D540039B32F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EC995AC22F4326B00B4B1F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,13 +89,12 @@
 		5EB3C90322DF4D540039B32F = {
 			isa = PBXGroup;
 			children = (
-				5EB7402022E9BD6E00C71294 /* Colors.swift */,
-				5EB7401A22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift */,
-				5E0F1AA522E5BAB10084DC9B /* GradientGeneratorExtension.swift */,
-				5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */,
-				5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */,
+				5EC995AA22F4023500B4B1F1 /* Constants */,
+				5EC995A522F3F5B200B4B1F1 /* Utilities */,
+				5EC995A422F3F58900B4B1F1 /* Extensions */,
 				5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */,
 				5EB3C90E22DF4D540039B32F /* LoginScreen */,
+				5EC995B022F4326C00B4B1F1 /* Tringapps-Training-Task1UITests */,
 				5EB3C90D22DF4D540039B32F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5EB3C90C22DF4D540039B32F /* Tringapps-Training-Task1.app */,
+				5EC995AF22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,12 +113,12 @@
 			children = (
 				5EB7402C22E9D98B00C71294 /* RegistrationPages */,
 				5EB3C90F22DF4D540039B32F /* AppDelegate.swift */,
-				5EB3C91122DF4D540039B32F /* ViewController.swift */,
+				5EB3C91122DF4D540039B32F /* LoginViewController.swift */,
 				5EB3C91322DF4D540039B32F /* Main.storyboard */,
 				5EB3C91622DF4D5E0039B32F /* Assets.xcassets */,
 				5EB3C91822DF4D5E0039B32F /* LaunchScreen.storyboard */,
 				5EB3C91B22DF4D5E0039B32F /* Info.plist */,
-				5EF923F722E1A63D00DDBF82 /* WelcomeScreenClass.swift */,
+				5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
@@ -97,12 +126,51 @@
 		5EB7402C22E9D98B00C71294 /* RegistrationPages */ = {
 			isa = PBXGroup;
 			children = (
-				5EB7402A22E9D8F000C71294 /* RegistrationPage1Class.swift */,
-				5ED1015B22F00B380043F1F7 /* RegistrationPage2Class.swift */,
-				5ED1015F22F051D70043F1F7 /* RegistrationConfirmationClass.swift */,
+				5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */,
+				5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */,
+				5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */,
 				5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */,
+				5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */,
 			);
 			path = RegistrationPages;
+			sourceTree = "<group>";
+		};
+		5EC995A422F3F58900B4B1F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5EB7401A22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift */,
+				5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */,
+				5EC995A622F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift */,
+				5EC995A822F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5EC995A522F3F5B200B4B1F1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */,
+				5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5EC995AA22F4023500B4B1F1 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5EB7402022E9BD6E00C71294 /* Colors.swift */,
+				5E2F4BFB22F43D640097A202 /* Strings.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		5EC995B022F4326C00B4B1F1 /* Tringapps-Training-Task1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				5EC995B122F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift */,
+				5EC995B322F4326C00B4B1F1 /* Info.plist */,
+			);
+			path = "Tringapps-Training-Task1UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,18 +193,40 @@
 			productReference = 5EB3C90C22DF4D540039B32F /* Tringapps-Training-Task1.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5EC995AE22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EC995B822F4326C00B4B1F1 /* Build configuration list for PBXNativeTarget "Tringapps-Training-Task1UITests" */;
+			buildPhases = (
+				5EC995AB22F4326B00B4B1F1 /* Sources */,
+				5EC995AC22F4326B00B4B1F1 /* Frameworks */,
+				5EC995AD22F4326B00B4B1F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EC995B522F4326C00B4B1F1 /* PBXTargetDependency */,
+			);
+			name = "Tringapps-Training-Task1UITests";
+			productName = "Tringapps-Training-Task1UITests";
+			productReference = 5EC995AF22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		5EB3C90422DF4D540039B32F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Tringapps;
 				TargetAttributes = {
 					5EB3C90B22DF4D540039B32F = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					5EC995AE22F4326B00B4B1F1 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5EB3C90B22DF4D540039B32F;
 					};
 				};
 			};
@@ -154,6 +244,7 @@
 			projectRoot = "";
 			targets = (
 				5EB3C90B22DF4D540039B32F /* Tringapps-Training-Task1 */,
+				5EC995AE22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +260,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EC995AD22F4326B00B4B1F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -176,23 +274,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EB7401B22E9BC5E00C71294 /* textFieldBottomBorderExtension.swift in Sources */,
+				5EB7401B22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift in Sources */,
 				5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */,
 				5E0F1AA022E5ADE30084DC9B /* LoginFormValidation.swift in Sources */,
 				5E0F1AA422E5B77F0084DC9B /* AlertCreator.swift in Sources */,
-				5ED1016022F051D70043F1F7 /* RegistrationConfirmationClass.swift in Sources */,
+				5ED1016022F051D70043F1F7 /* RegistrationConfirmationViewController.swift in Sources */,
 				5ED1016222F080230043F1F7 /* RegistrationDataStruct.swift in Sources */,
 				5E0F1AA222E5B02B0084DC9B /* FormatChecking.swift in Sources */,
-				5EF923F822E1A63D00DDBF82 /* WelcomeScreenClass.swift in Sources */,
-				5EB3C91222DF4D540039B32F /* ViewController.swift in Sources */,
-				5EB7402B22E9D8F000C71294 /* RegistrationPage1Class.swift in Sources */,
+				5EF923F822E1A63D00DDBF82 /* WelcomeViewController.swift in Sources */,
+				5EC995A722F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift in Sources */,
+				5EC995A922F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift in Sources */,
+				5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */,
+				5EB7402B22E9D8F000C71294 /* RegistrationPage1ViewController.swift in Sources */,
+				5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */,
 				5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */,
-				5ED1015C22F00B380043F1F7 /* RegistrationPage2Class.swift in Sources */,
-				5E0F1AA622E5BAB10084DC9B /* GradientGeneratorExtension.swift in Sources */,
+				5ED1015C22F00B380043F1F7 /* RegistrationPage2ViewController.swift in Sources */,
+				5EC995A322F3F34C00B4B1F1 /* StatusSetter.swift in Sources */,
+				5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EC995AB22F4326B00B4B1F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EC995B222F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5EC995B522F4326C00B4B1F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB3C90B22DF4D540039B32F /* Tringapps-Training-Task1 */;
+			targetProxy = 5EC995B422F4326C00B4B1F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5EB3C91322DF4D540039B32F /* Main.storyboard */ = {
@@ -366,6 +484,46 @@
 			};
 			name = Release;
 		};
+		5EC995B622F4326C00B4B1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Tringapps-Training-Task1UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lourdes.Tringapps-Training-Task1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tringapps-Training-Task1";
+			};
+			name = Debug;
+		};
+		5EC995B722F4326C00B4B1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Tringapps-Training-Task1UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lourdes.Tringapps-Training-Task1UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tringapps-Training-Task1";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -383,6 +541,15 @@
 			buildConfigurations = (
 				5EB3C91F22DF4D5E0039B32F /* Debug */,
 				5EB3C92022DF4D5E0039B32F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EC995B822F4326C00B4B1F1 /* Build configuration list for PBXNativeTarget "Tringapps-Training-Task1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EC995B622F4326C00B4B1F1 /* Debug */,
+				5EC995B722F4326C00B4B1F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

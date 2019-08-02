@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class WelcomeScreenClass : UIViewController {
+class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View has been loaded")
@@ -21,7 +21,7 @@ class WelcomeScreenClass : UIViewController {
 
         guard let _ = self.presentingViewController else {
             print("Presenting View Controller")
-            performSegue(withIdentifier: "LoginScreenPopOverSegue", sender: self)
+            performSegue(withIdentifier: "LoginScreenSegue", sender: self)
             return
         }
         self.dismiss(animated: true, completion: nil)

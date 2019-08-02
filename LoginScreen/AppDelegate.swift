@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print("\(userNameUnWrapped) Has Logged In")
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let welcomeScreen = storyBoard.instantiateViewController(withIdentifier: "WelcomeScreenIdentifier") as! WelcomeScreenClass
+        let welcomeScreen = storyBoard.instantiateViewController(withIdentifier: "WelcomeScreenIdentifier") as! WelcomeViewController
         self.window?.rootViewController = welcomeScreen
     }
 

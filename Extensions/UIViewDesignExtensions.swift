@@ -19,4 +19,12 @@ extension UIView {
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         layer.insertSublayer(gradientLayer, at: 0)
     }
+
+    func applyViewTheme(){
+        self.layer.cornerRadius = 15;
+        self.layer.shadowColor = UIColor.black.cgColor;
+        self.layer.shadowRadius = 5;
+        self.layer.shadowOpacity = 0.5;
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+    }
 }
