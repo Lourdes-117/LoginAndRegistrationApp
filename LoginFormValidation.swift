@@ -9,22 +9,22 @@
 import Foundation
 class LoginFormValidation {
 
-    public class func validateAllFilds(enteredUserName:String, enteredPassword:String) -> String {
+    public class func validateAllFilds(enteredUserName:String, enteredPassword:String) -> Bool {
         let userNameValidityStatus:String? = isUserNameValid(enteredUserName: enteredUserName)
-        if let userNameValidityStatusUnwrapped = userNameValidityStatus {
-            return userNameValidityStatusUnwrapped
+        if userNameValidityStatus != nil {
+            return false
         }
 
         let passwordValidityStatus:String? = isPasswordValid(enteredPassword: enteredPassword)
-        if let passwordValidityStatusUnwrapped = passwordValidityStatus {
-            return passwordValidityStatusUnwrapped
+        if passwordValidityStatus != nil {
+            return false
         }
 
         let authenticationStatus:Bool = authenticateAccount(enteredUserName, enteredPassword);
         if(authenticationStatus){
-            return enteredUserName
+            return true
         }
-        return LoginStatus.ACCOUNT_NOT_FOUND.rawValue
+        return false
     }
 
     public class func isUserNameValid(enteredUserName: String)-> String? {

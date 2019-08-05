@@ -135,7 +135,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			return true
 		}
 		userNameField.setBottomBorder(withColor: Colors.DARK_RED.cgColor);
-        errorTextView.isHidden = true
+        errorTextView.isHidden = false
 		errorTextView.text! = userNameValidityStatusUnwrapped;
 		applyPasswordFieldDisabledDesign();
 		return false
@@ -184,12 +184,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 
     @IBAction func onClickLoginButton(_ sender: Any) {
-    print("Login Button Has Been Clicked")
-    let enteredUserName:String = userNameField.text!
-    let enteredPassword:String = passwordField.text!
-    let loginFormValidationStatus:String = LoginFormValidation.validateAllFilds(enteredUserName: enteredUserName, enteredPassword: enteredPassword)
+		print("Login Button Has Been Clicked")
+		let isAllFieldsValid:Bool = (isUserNameValid() && isPasswordValid());
+		if(!isAllFieldsValid){return}
+		let enteredUserName:String = userNameField.text!
+		let enteredPassword:String = passwordField.text!
+		let loginFormValidationStatus:Bool = LoginFormValidation.validateAllFilds(enteredUserName: enteredUserName, enteredPassword: enteredPassword)
 
-		if(loginFormValidationStatus == enteredUserName){
+		if(loginFormValidationStatus){
 			print("User Authenticated")
 			errorTextView.isHidden = true
 			print("Welcome Screen Segue has been initiated")
@@ -199,19 +201,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			return
 		}
 
-		if(loginFormValidationStatus == LoginStatus.ACCOUNT_NOT_FOUND.rawValue){
-			let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
-			self.present(wrongCredentialsAlert, animated: true, completion: nil)
-			errorTextView.isHidden = false
-			errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue
-			return
-		}
-
-		let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Invalid Field(s) Found", buttonTitle: "Ok")
-		self.present(wrongCredentialsAlert, animated: true, completion: nil)
-
-        errorTextView.isHidden = false
-		errorTextView.text = loginFormValidationStatus
+		let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
+		self.present(wrongCredentialsAlert, animated: true, completion: {self.errorTextView.isHidden = false;
+			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue})
 	}
 
 	@IBAction func onClickForgotPassword(_ sender: UIButton) {
