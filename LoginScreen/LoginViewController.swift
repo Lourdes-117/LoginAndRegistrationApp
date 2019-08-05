@@ -20,6 +20,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		userNameField.text = ""
+		passwordField.text = ""
 		print("Login View Will Appear")
 	}
 
@@ -191,20 +193,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			errorTextView.isHidden = true
 			print("Changing Root View Controller as Welcome Screen")
 
-            let loginData = UserDefaults.standard
-            loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
-
-			//Change Root View Controller After Login
-			let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-			let viewController = mainStoryboard.instantiateViewController(withIdentifier: "WelcomeScreenIdentifier") as UIViewController
-			UIApplication.shared.keyWindow?.rootViewController = viewController;
-
+			performSegue(withIdentifier: "WelcomeScreenSegueIdentifier", sender: nil)
 			return
 		}
 
 		let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
 		self.present(wrongCredentialsAlert, animated: true, completion: {self.errorTextView.isHidden = false;
 			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue})
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let loginData = UserDefaults.standard
+		UserDefaults.standard.synchronize();
+		loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
 	}
 
 	@IBAction func onClickForgotPassword(_ sender: UIButton) {

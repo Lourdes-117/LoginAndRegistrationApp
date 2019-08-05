@@ -308,6 +308,7 @@
                         <outlet property="topBackground" destination="yTb-Y2-VLk" id="FM8-mG-Yva"/>
                         <outlet property="userNameField" destination="QGn-wJ-d6j" id="cMT-il-wn1"/>
                         <segue destination="qLm-7A-rtt" kind="presentation" identifier="RegistrationPageSegue" modalTransitionStyle="flipHorizontal" id="t69-gn-fGJ"/>
+                        <segue destination="Qod-wQ-WUt" kind="presentation" identifier="WelcomeScreenSegueIdentifier" id="yIs-cF-zaT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
