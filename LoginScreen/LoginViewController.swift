@@ -20,12 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		if(userNameField.text != nil){
-			userNameField.text = nil
-		}
-		if(passwordField.text != nil){
-        	passwordField.text = nil
-		}
 		print("Login View Will Appear")
 	}
 
@@ -195,11 +189,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		if(loginFormValidationStatus){
 			print("User Authenticated")
 			errorTextView.isHidden = true
-			print("Welcome Screen Segue has been initiated")
+			print("Changing Root View Controller as Welcome Screen")
 
-            performSegue(withIdentifier: "welcomeScreenSegueIdentity", sender: nil)
             let loginData = UserDefaults.standard
             loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
+
+			//Change Root View Controller After Login
+			let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+			let viewController = mainStoryboard.instantiateViewController(withIdentifier: "WelcomeScreenIdentifier") as UIViewController
+			UIApplication.shared.keyWindow?.rootViewController = viewController;
+
 			return
 		}
 
@@ -212,10 +211,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
 		self.present(forgorPasswordAlert, animated: true, completion: nil)
 	}
-
-    @IBAction func onClickSignupButton(_ sender: Any) {
-        performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
-    }
 
 	@IBAction func unwindToLoginViewController(_ unwindSegue: UIStoryboardSegue) {}
 	deinit {

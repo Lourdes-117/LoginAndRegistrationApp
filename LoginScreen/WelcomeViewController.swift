@@ -18,13 +18,18 @@ class WelcomeViewController: UIViewController {
         print("LogOut has been Clicked")
         let loginDetails = UserDefaults.standard
         loginDetails.set(nil, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
-
-        guard let _ = self.presentingViewController else {
-            print("Presenting View Controller")
-            performSegue(withIdentifier: "LoginScreenSegue", sender: self)
-            return
-        }
-        self.dismiss(animated: true, completion: nil)
+//
+//        guard let _ = self.presentingViewController else {
+//            print("Changing RootView Controller To Login Screen")
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginScreenIdentifier") as UIViewController
+//            UIApplication.shared.keyWindow?.rootViewController = viewController;
+//            return;
+//        }
+//        self.dismiss(animated: true, completion: nil)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginScreenIdentifier") as UIViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController;
     }
 
     deinit {
