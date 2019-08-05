@@ -14,10 +14,10 @@ class WelcomeViewController: UIViewController {
         print("View has been loaded")
     
     }
-    @IBAction func onClickLogOut(_ sender: Any) {
+    @IBAction func onClickLogOut(_ sender: Any) {       //This Page has a bug
         print("LogOut has been Clicked")
         let loginDetails = UserDefaults.standard
-        loginDetails.set(nil, forKey: "UserName")
+        loginDetails.set(nil, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
 
         guard let _ = self.presentingViewController else {
             print("Presenting View Controller")

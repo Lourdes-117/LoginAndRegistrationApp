@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func checkIfUserIsLoggedIn(){
         print("Checking login details")
         let loginDetails = UserDefaults.standard
-        let userName = loginDetails.string(forKey: "UserName")
+        let userName = loginDetails.string(forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue )
         guard  let userNameUnWrapped = userName else {
             print("No user is logged In")
             return

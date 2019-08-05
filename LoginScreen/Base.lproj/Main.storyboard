@@ -315,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="4.3478260869565224" y="4.8913043478260869"/>
         </scene>
-        <!--Registration Page1 View Controller-->
+        <!--Registration Page One View Controller-->
         <scene sceneID="XzT-HY-LIB">
             <objects>
-                <viewController storyboardIdentifier="RegistrationPage1Identity" id="qLm-7A-rtt" customClass="RegistrationPage1ViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationPage1Identity" id="qLm-7A-rtt" customClass="RegistrationPageOneViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sAJ-F7-zDE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -533,6 +533,7 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8lF-L8-yhe">
                                                 <rect key="frame" x="18" y="208" width="366" height="25"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="YJM-S2-XPi">
                                                         <variation key="heightClass=regular-widthClass=regular" constant="60"/>
@@ -540,8 +541,14 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="continue" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="alert" returnKeyType="continue"/>
                                             </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOB Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHw-1u-Mde">
+                                                <rect key="frame" x="306" y="182" width="78" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.8980392157" green="0.0084072236049999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -577,12 +584,14 @@
                                             <constraint firstItem="kTC-dh-4h6" firstAttribute="trailing" secondItem="y29-Jd-xw5" secondAttribute="trailing" id="OpS-KD-iuh"/>
                                             <constraint firstItem="qGb-3S-Upu" firstAttribute="top" secondItem="xko-fE-RxY" secondAttribute="bottom" constant="35" id="OuF-cm-0pD"/>
                                             <constraint firstItem="giQ-4g-oSq" firstAttribute="trailing" secondItem="xko-fE-RxY" secondAttribute="trailing" id="QnE-FV-SKA"/>
+                                            <constraint firstItem="QHw-1u-Mde" firstAttribute="top" secondItem="edb-R6-rlc" secondAttribute="top" id="Uth-QJ-882"/>
                                             <constraint firstItem="xko-fE-RxY" firstAttribute="leading" secondItem="rHu-tc-H8N" secondAttribute="leading" id="Vat-Fc-SXm"/>
                                             <constraint firstItem="pkL-lP-nIq" firstAttribute="top" secondItem="tgw-uh-NFz" secondAttribute="top" constant="10" id="Wqj-Mt-cEA"/>
                                             <constraint firstItem="y29-Jd-xw5" firstAttribute="leading" secondItem="Jck-fj-09x" secondAttribute="leading" id="Xap-rM-tls"/>
                                             <constraint firstItem="nd2-MM-Le6" firstAttribute="top" secondItem="E32-hu-Xv4" secondAttribute="bottom" constant="5" id="XzH-r3-zvU"/>
                                             <constraint firstItem="edb-R6-rlc" firstAttribute="top" secondItem="Dtm-Ni-goW" secondAttribute="bottom" constant="35" id="YqT-tS-lcr"/>
                                             <constraint firstItem="YJl-yd-SkZ" firstAttribute="trailing" secondItem="dbG-Lr-LwM" secondAttribute="trailing" id="a5q-HS-n4g"/>
+                                            <constraint firstItem="QHw-1u-Mde" firstAttribute="trailing" secondItem="8lF-L8-yhe" secondAttribute="trailing" id="bEo-fj-H0D"/>
                                             <constraint firstItem="OZj-Kb-4Yd" firstAttribute="top" secondItem="pkL-lP-nIq" secondAttribute="top" id="byG-M7-tmD"/>
                                             <constraint firstAttribute="height" priority="250" constant="1200" id="caf-gf-pMo">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="934"/>
@@ -645,11 +654,12 @@
                         <outlet property="continueButton" destination="336-jw-5Di" id="4jh-oP-9ov"/>
                         <outlet property="error_Address" destination="kTC-dh-4h6" id="NVj-fZ-c5O"/>
                         <outlet property="error_ConfirmPassword" destination="HrT-ws-3b5" id="Yrd-Ww-TB1"/>
+                        <outlet property="error_DateOfBirth" destination="QHw-1u-Mde" id="gsW-NA-bDa"/>
                         <outlet property="error_EmailID" destination="YJl-yd-SkZ" id="Uld-wd-FTS"/>
                         <outlet property="error_FirstName" destination="OZj-Kb-4Yd" id="Bem-Dr-hwG"/>
                         <outlet property="error_LastName" destination="oYQ-yp-fys" id="xen-GH-jZA"/>
                         <outlet property="error_PhoneNumber" destination="giQ-4g-oSq" id="hzZ-Us-1ai"/>
-                        <outlet property="label_PasswordStrengthIndicator" destination="nd2-MM-Le6" id="7SW-OI-Tq6"/>
+                        <outlet property="label_PasswordStrengthIndicator" destination="nd2-MM-Le6" id="B4H-qm-JcQ"/>
                         <outlet property="scrollView" destination="nYE-MH-1wv" id="YgF-1i-r9A"/>
                         <outlet property="scrollableContentView" destination="tgw-uh-NFz" id="pQP-3b-QFP"/>
                         <outlet property="textField_ConfirmPassword" destination="DmE-NW-vWw" id="dIm-nI-NC2"/>
@@ -661,17 +671,17 @@
                         <outlet property="textField_PhoneNumber" destination="xko-fE-RxY" id="0Cb-hW-aOl"/>
                         <outlet property="textView_Address" destination="y29-Jd-xw5" id="DnG-WG-Gqu"/>
                         <outlet property="topBackground" destination="Dld-oP-iJT" id="srV-o5-mlM"/>
-                        <segue destination="qNq-7n-LYa" kind="show" identifier="registrationPage2Segue" id="WHl-Eb-DIU"/>
+                        <segue destination="qNq-7n-LYa" kind="showDetail" identifier="registrationPage2Segue" id="WHl-Eb-DIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MLP-kz-T13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="770" y="-1189"/>
         </scene>
-        <!--Registration Page2 View Controller-->
+        <!--Registration Page Two View Controller-->
         <scene sceneID="haZ-Bs-i0C">
             <objects>
-                <viewController storyboardIdentifier="RegistrationPage2Identity" id="qNq-7n-LYa" customClass="RegistrationPage2ViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationPage2Identity" modalTransitionStyle="crossDissolve" id="qNq-7n-LYa" customClass="RegistrationPageTwoViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yMU-JS-FcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -922,7 +932,7 @@
         <!--Registration Confirmation View Controller-->
         <scene sceneID="273-Yk-1Tc">
             <objects>
-                <viewController storyboardIdentifier="RegistrationConfirmationIdentity" id="rSm-pU-8kb" customClass="RegistrationConfirmationViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationConfirmationIdentity" modalTransitionStyle="crossDissolve" id="rSm-pU-8kb" customClass="RegistrationConfirmationViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROu-Kj-kKt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

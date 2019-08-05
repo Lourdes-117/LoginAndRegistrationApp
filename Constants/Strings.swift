@@ -20,3 +20,15 @@ enum RegistrationStatus:String {
     case PASSWORD_MATCH = "Password Match"
     case PASSWORD_MISMATCH = "Password Mismatch"
 }
+
+enum SavedVariables:String {
+    case LOGGED_IN_USERNAME = "UserName"
+}
+
+enum Regex:String {
+    case EMAIL = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    case PHONE_NUMBER = "[0-9]{10}"
+    case STRONG_PASSWORD = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}"
+    case NAME = "([A-Za-z\\s]){1,}"
+    case DATE_OF_BIRTH = "(([0-9]{1,2})[//]([0-9]{1,2})[//]([0-9]{1,4}))"
+}

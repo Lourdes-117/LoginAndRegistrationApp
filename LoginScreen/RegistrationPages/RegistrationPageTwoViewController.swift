@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationPage2ViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+class RegistrationPageTwoViewController: UIViewController, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView_ProfilePicture: UIImageView!
     @IBOutlet weak var error_Status: UILabel!

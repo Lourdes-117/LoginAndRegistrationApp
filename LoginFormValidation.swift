@@ -33,8 +33,8 @@ class LoginFormValidation {
             return LoginStatus.USERNAME_EMPTY.rawValue
         }
         var isUserNameValid: Bool
-        isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
-        isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: "[0-9]{10}") || isUserNameValid
+        isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: Regex.EMAIL.rawValue)
+        isUserNameValid = FormatChecking.isValidFormat(textToCheck: enteredUserName, format: Regex.PHONE_NUMBER.rawValue) || isUserNameValid
         if !isUserNameValid {
             print(LoginStatus.USERNAME_INVALID.rawValue)
             return LoginStatus.USERNAME_INVALID.rawValue
@@ -49,7 +49,7 @@ class LoginFormValidation {
             return LoginStatus.EMPTY_PASSWORD.rawValue
         }
         let isPasswordValid: Bool
-        isPasswordValid = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}")
+        isPasswordValid = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: Regex.STRONG_PASSWORD.rawValue)
         if !isPasswordValid {
             print(LoginStatus.PASSWORD_WEAK.rawValue)
             return LoginStatus.PASSWORD_WEAK.rawValue

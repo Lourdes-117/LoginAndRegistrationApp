@@ -19,12 +19,12 @@
 		5EB3C91A22DF4D5E0039B32F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91822DF4D5E0039B32F /* LaunchScreen.storyboard */; };
 		5EB7401B22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7401A22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift */; };
 		5EB7402122E9BD6E00C71294 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402022E9BD6E00C71294 /* Colors.swift */; };
-		5EB7402B22E9D8F000C71294 /* RegistrationPage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */; };
+		5EB7402B22E9D8F000C71294 /* RegistrationPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7402A22E9D8F000C71294 /* RegistrationPageOneViewController.swift */; };
 		5EC995A322F3F34C00B4B1F1 /* StatusSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */; };
 		5EC995A722F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A622F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift */; };
 		5EC995A922F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995A822F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift */; };
 		5EC995B222F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC995B122F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift */; };
-		5ED1015C22F00B380043F1F7 /* RegistrationPage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */; };
+		5ED1015C22F00B380043F1F7 /* RegistrationPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015B22F00B380043F1F7 /* RegistrationPageTwoViewController.swift */; };
 		5ED1016022F051D70043F1F7 /* RegistrationConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */; };
 		5ED1016222F080230043F1F7 /* RegistrationDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */; };
 		5EF923F822E1A63D00DDBF82 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */; };
@@ -55,14 +55,14 @@
 		5EB3C91B22DF4D5E0039B32F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB7401A22E9BC5E00C71294 /* UItextFieldDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItextFieldDesignExtensions.swift; sourceTree = "<group>"; };
 		5EB7402022E9BD6E00C71294 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage1ViewController.swift; sourceTree = "<group>"; };
+		5EB7402A22E9D8F000C71294 /* RegistrationPageOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageOneViewController.swift; sourceTree = "<group>"; };
 		5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSetter.swift; sourceTree = "<group>"; };
 		5EC995A622F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItextViewDesignExtensions.swift; sourceTree = "<group>"; };
 		5EC995A822F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIbuttonDesignExtension.swift; sourceTree = "<group>"; };
 		5EC995AF22F4326B00B4B1F1 /* Tringapps-Training-Task1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tringapps-Training-Task1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EC995B122F4326C00B4B1F1 /* Tringapps_Training_Task1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tringapps_Training_Task1UITests.swift; sourceTree = "<group>"; };
 		5EC995B322F4326C00B4B1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPage2ViewController.swift; sourceTree = "<group>"; };
+		5ED1015B22F00B380043F1F7 /* RegistrationPageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageTwoViewController.swift; sourceTree = "<group>"; };
 		5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationConfirmationViewController.swift; sourceTree = "<group>"; };
 		5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataStruct.swift; sourceTree = "<group>"; };
 		5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 		5EB7402C22E9D98B00C71294 /* RegistrationPages */ = {
 			isa = PBXGroup;
 			children = (
-				5EB7402A22E9D8F000C71294 /* RegistrationPage1ViewController.swift */,
-				5ED1015B22F00B380043F1F7 /* RegistrationPage2ViewController.swift */,
+				5EB7402A22E9D8F000C71294 /* RegistrationPageOneViewController.swift */,
+				5ED1015B22F00B380043F1F7 /* RegistrationPageTwoViewController.swift */,
 				5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */,
 				5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */,
 				5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */,
@@ -285,10 +285,10 @@
 				5EC995A722F3FB7400B4B1F1 /* UItextViewDesignExtensions.swift in Sources */,
 				5EC995A922F3FCD700B4B1F1 /* UIbuttonDesignExtension.swift in Sources */,
 				5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */,
-				5EB7402B22E9D8F000C71294 /* RegistrationPage1ViewController.swift in Sources */,
+				5EB7402B22E9D8F000C71294 /* RegistrationPageOneViewController.swift in Sources */,
 				5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */,
 				5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */,
-				5ED1015C22F00B380043F1F7 /* RegistrationPage2ViewController.swift in Sources */,
+				5ED1015C22F00B380043F1F7 /* RegistrationPageTwoViewController.swift in Sources */,
 				5EC995A322F3F34C00B4B1F1 /* StatusSetter.swift in Sources */,
 				5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */,
 			);

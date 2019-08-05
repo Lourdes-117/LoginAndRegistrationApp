@@ -131,7 +131,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			userNameField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor);
             errorTextView.isHidden = true
 			passwordField.isEnabled = true;
-			passwordField.layer.sublayers?.remove(at: 0);
+			passwordField.layer.sublayers?.removeFirst()
 			return true
 		}
 		userNameField.setBottomBorder(withColor: Colors.DARK_RED.cgColor);
@@ -165,7 +165,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 
 	private func appplyTopBackground() {
-		topBackground.layer.cornerRadius = 40;	
+		let radius:CGFloat = 40;
+		topBackground.layer.cornerRadius = radius;
 	}
 
 	private func applyButtonsDesign() {
@@ -179,7 +180,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 	private func applyPasswordFieldDisabledDesign(){
 		passwordField.isEnabled = false
-		passwordField.layer.sublayers?.remove(at: 0)
+		passwordField.layer.sublayers?.removeFirst()
 		passwordField.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
 	}
 
@@ -195,9 +196,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			print("User Authenticated")
 			errorTextView.isHidden = true
 			print("Welcome Screen Segue has been initiated")
+
             performSegue(withIdentifier: "welcomeScreenSegueIdentity", sender: nil)
             let loginData = UserDefaults.standard
-            loginData.set(userNameField.text!, forKey: "UserName")
+            loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
 			return
 		}
 

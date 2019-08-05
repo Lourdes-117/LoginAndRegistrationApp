@@ -32,6 +32,7 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     @IBOutlet weak var error_PhoneNumber: UILabel!
     @IBOutlet weak var label_PasswordStrengthIndicator: UILabel!
     @IBOutlet weak var error_ConfirmPassword: UILabel!
+    @IBOutlet weak var error_DateOfBirth: UILabel!
     @IBOutlet weak var error_Address: UILabel!
     //DatePicker
     private var datePicker_DateOfBirth:UIDatePicker?
@@ -45,6 +46,7 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     var validity_Password:Bool = false
     var validity_ConfirmPassword:Bool = false
     var validity_Address:Bool = false
+    var validity_DateOfBirth:Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +118,8 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func appplyTopBackground() {
-        topBackground.layer.cornerRadius = 40;
+        let radius:CGFloat = 40
+        topBackground.layer.cornerRadius = radius;
     }
 
     private func applyButtonsDesign() {
@@ -173,6 +176,8 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
             validity_FirstName = checkFirstName()
         } else if(textField == self.textField_LastName) {
             validity_LastName = checkLastName()
+        } else if(textField == self.textField_DateOfBirth) {
+            validity_DateOfBirth = checkDateOfBirth()
         } else if(textField == self.textField_EmailId) {
             validity_EmailID = checkEmailId()
         } else if(textField == self.textField_PhoneNumber) {
@@ -195,25 +200,31 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func checkFirstName() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_FirstName.text!, format: "([A-Za-z\\s]){1,}")
+        let isValid = FormatChecking.isValidFormat(textToCheck: textField_FirstName.text!, format: Regex.NAME.rawValue)
         StatusSetter.setStatus(forLabel: error_FirstName, ofTextField:textField_FirstName, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkLastName() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_LastName.text!, format: "([A-Za-z\\s]){1,}")
+        let isValid = FormatChecking.isValidFormat(textToCheck: textField_LastName.text!, format: Regex.NAME.rawValue)
         StatusSetter.setStatus(forLabel: error_LastName, ofTextField:textField_LastName, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
+    private func checkDateOfBirth() -> Bool {
+        let isValid = FormatChecking.isValidFormat(textToCheck: textField_DateOfBirth.text!, format: Regex.DATE_OF_BIRTH.rawValue)
+        StatusSetter.setStatus(forLabel: error_DateOfBirth, ofTextField:textField_DateOfBirth, ofTextView: nil, validityStatus: isValid)
+        return isValid
+    }
+
     private func checkEmailId() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_EmailId.text!, format: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+        let isValid = FormatChecking.isValidFormat(textToCheck: textField_EmailId.text!, format: Regex.EMAIL.rawValue)
         StatusSetter.setStatus(forLabel: error_EmailID, ofTextField:textField_EmailId, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkPhoneNumber() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_PhoneNumber.text!, format: "([0-9]){10}")
+        let isValid = FormatChecking.isValidFormat(textToCheck: textField_PhoneNumber.text!, format: Regex.PHONE_NUMBER.rawValue)
         StatusSetter.setStatus(forLabel: error_PhoneNumber, ofTextField:textField_PhoneNumber, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
@@ -226,11 +237,11 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
             label_PasswordStrengthIndicator.textColor = Colors.GREEN
             textField_Password.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
             textField_ConfirmPassword.isEnabled = true
-            textField_ConfirmPassword.layer.sublayers?.remove(at: 0);
+            textField_ConfirmPassword.layer.sublayers?.removeFirst()
             return true;
         }
         textField_ConfirmPassword.isEnabled = false
-        textField_ConfirmPassword.layer.sublayers?.remove(at: 0);
+        textField_ConfirmPassword.layer.sublayers?.removeFirst()
         textField_ConfirmPassword.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
         if(passwordStrengthUnwrapped == "⚠️ Password cannot be empty") {
             label_PasswordStrengthIndicator.textColor = Colors.RED
@@ -246,13 +257,16 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func checkConfirmPassword() -> Bool {
-        if(textField_Password.text! == textField_ConfirmPassword.text!) {
+        if((textField_Password.text! == textField_ConfirmPassword.text!) && textField_Password.text! != "") {
             StatusSetter.setStatus(forLabel: error_ConfirmPassword, ofTextField:textField_ConfirmPassword, ofTextView: nil, validityStatus: true)
             error_ConfirmPassword.text! = RegistrationStatus.PASSWORD_MATCH.rawValue
             return true
         } else {
             StatusSetter.setStatus(forLabel: error_ConfirmPassword, ofTextField:textField_ConfirmPassword, ofTextView: nil, validityStatus: false)
             error_ConfirmPassword.text! = RegistrationStatus.PASSWORD_MISMATCH.rawValue
+            if(textField_Password.text! == ""){
+                error_ConfirmPassword.isHidden = true
+            }
             return false
         }
     }
@@ -262,17 +276,14 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
         print("Continue Button Has Been Clicked")
         validity_FirstName = checkFirstName()
         validity_LastName = checkLastName()
+        validity_DateOfBirth = checkDateOfBirth();
         validity_PhoneNumber = checkPhoneNumber()
         validity_Password = checkPassWordStrength()
-        if(validity_Password){
-            validity_ConfirmPassword = checkConfirmPassword()
-        } else {
-            validity_ConfirmPassword = false
-        }
+        validity_ConfirmPassword = checkConfirmPassword()
         validity_Address = checkAddress()
         validity_EmailID = checkEmailId()
 
-        let isAllValid = validity_FirstName && validity_LastName && validity_PhoneNumber && validity_Password && validity_ConfirmPassword && validity_Address && validity_EmailID
+        let isAllValid = validity_FirstName && validity_LastName && validity_DateOfBirth && validity_PhoneNumber && validity_Password && validity_ConfirmPassword && validity_Address && validity_EmailID
 
         if(isAllValid) {
             print("All Fields Are Valid")
@@ -285,7 +296,7 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         removeNotificationCenter()
-        guard let registrationPage2 = segue.destination as? RegistrationPage2ViewController else {
+        guard let registrationPage2 = segue.destination as? RegistrationPageTwoViewController else {
             print("Invalid Segue to Registration Page 2")
             return;
         }
