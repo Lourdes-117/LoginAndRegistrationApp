@@ -56,6 +56,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         applyTextFieldsDesign()
         applyTextViewDesign()
 
+        //DatePicker
         initializeDatePicker()
 
         setMaximumDateInDatePicker()
@@ -80,7 +81,6 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         textField_DateOfBirth.text = formatter.string(from: datepick.date)
-        view.endEditing(true)
     }
 
     private func setDelegates(){
@@ -153,6 +153,7 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
         if(textField == self.textField_FirstName && checkFirstName()) {
             textField_LastName.becomeFirstResponder()
         } else if(textField == self.textField_LastName && checkLastName()) {
+            textField_DateOfBirth.becomeFirstResponder()
             view.endEditing(true)
         } else if(textField == self.textField_EmailId && checkEmailId()){
             textField_PhoneNumber.becomeFirstResponder();
@@ -312,10 +313,12 @@ class RegistrationPage1ViewController: UIViewController, UITextFieldDelegate, UI
     @IBAction func onClickCancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+
     private func removeNotificationCenter(){
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+
     deinit {
         removeNotificationCenter()
         print("Registration Page 1 is safe from memory leak")
