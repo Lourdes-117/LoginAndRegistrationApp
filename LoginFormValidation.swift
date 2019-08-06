@@ -48,6 +48,11 @@ class LoginFormValidation {
             print(LoginStatus.PASSWORD_EMPTY.rawValue)
             return LoginStatus.PASSWORD_EMPTY.rawValue
         }
+        let isPasswordTooLong:Bool = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: Regex.PASSWORD_LENGTH.rawValue)
+        if(!isPasswordTooLong) {
+            print(LoginStatus.PASSWORD_LONG.rawValue)
+            return LoginStatus.PASSWORD_LONG.rawValue
+        }
         let isPasswordValid: Bool
         isPasswordValid = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: Regex.STRONG_PASSWORD.rawValue)
         if !isPasswordValid {
@@ -77,9 +82,13 @@ class LoginFormValidation {
             label_PasswordStrengthIndicator.textColor = Colors.RED
             textField_Password.setBottomBorder(withColor: Colors.RED.cgColor)
             label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
-        } else {
+        } else if(passwordStrengthUnwrapped == LoginStatus.PASSWORD_WEAK.rawValue){
             label_PasswordStrengthIndicator.textColor = Colors.YELLOW
             textField_Password.setBottomBorder(withColor: Colors.YELLOW.cgColor)
+            label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
+        } else {
+            label_PasswordStrengthIndicator.textColor = Colors.RED
+            textField_Password.setBottomBorder(withColor: Colors.RED.cgColor)
             label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
         }
         return false

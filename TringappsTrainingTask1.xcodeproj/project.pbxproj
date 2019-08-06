@@ -11,7 +11,7 @@
 		5E0F1AA222E5B02B0084DC9B /* FormatChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */; };
 		5E0F1AA422E5B77F0084DC9B /* AlertCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */; };
 		5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */; };
-		5E29D91E22F95CDD004371E7 /* testLoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E29D91D22F95CDD004371E7 /* testLoginScreen.swift */; };
+		5E29D91E22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */; };
 		5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F4BFB22F43D640097A202 /* Strings.swift */; };
 		5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C90F22DF4D540039B32F /* AppDelegate.swift */; };
 		5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* LoginViewController.swift */; };
@@ -46,7 +46,7 @@
 		5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreator.swift; sourceTree = "<group>"; };
 		5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewDesignExtensions.swift; sourceTree = "<group>"; };
 		5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TringappsTrainingTask1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E29D91D22F95CDD004371E7 /* testLoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLoginScreen.swift; sourceTree = "<group>"; };
+		5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginScreen.temp_caseinsensitive_rename.swift; sourceTree = "<group>"; };
 		5E29D91F22F95CDD004371E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2F4BFB22F43D640097A202 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TringappsTrainingTask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +89,7 @@
 		5E29D91C22F95CDD004371E7 /* TringappsTrainingTask1Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5E29D91D22F95CDD004371E7 /* testLoginScreen.swift */,
+				5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */,
 				5E29D91F22F95CDD004371E7 /* Info.plist */,
 			);
 			path = TringappsTrainingTask1Tests;
@@ -274,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E29D91E22F95CDD004371E7 /* testLoginScreen.swift in Sources */,
+				5E29D91E22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
