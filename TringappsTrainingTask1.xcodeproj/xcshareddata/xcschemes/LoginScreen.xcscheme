@@ -38,6 +38,16 @@
                ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5E29D91A22F95CDD004371E7"
+               BuildableName = "TringappsTrainingTask1Tests.xctest"
+               BlueprintName = "TringappsTrainingTask1Tests"
+               ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

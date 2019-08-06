@@ -11,6 +11,7 @@
 		5E0F1AA222E5B02B0084DC9B /* FormatChecking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */; };
 		5E0F1AA422E5B77F0084DC9B /* AlertCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */; };
 		5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */; };
+		5E29D91E22F95CDD004371E7 /* TringappsTrainingTask1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E29D91D22F95CDD004371E7 /* TringappsTrainingTask1Tests.swift */; };
 		5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F4BFB22F43D640097A202 /* Strings.swift */; };
 		5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C90F22DF4D540039B32F /* AppDelegate.swift */; };
 		5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* LoginViewController.swift */; };
@@ -29,11 +30,24 @@
 		5EF923F822E1A63D00DDBF82 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF923F722E1A63D00DDBF82 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E29D92022F95CDD004371E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EB3C90422DF4D540039B32F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB3C90B22DF4D540039B32F;
+			remoteInfo = TringappsTrainingTask1;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormValidation.swift; sourceTree = "<group>"; };
 		5E0F1AA122E5B02B0084DC9B /* FormatChecking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatChecking.swift; sourceTree = "<group>"; };
 		5E0F1AA322E5B77F0084DC9B /* AlertCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCreator.swift; sourceTree = "<group>"; };
 		5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewDesignExtensions.swift; sourceTree = "<group>"; };
+		5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TringappsTrainingTask1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E29D91D22F95CDD004371E7 /* TringappsTrainingTask1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TringappsTrainingTask1Tests.swift; sourceTree = "<group>"; };
+		5E29D91F22F95CDD004371E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2F4BFB22F43D640097A202 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TringappsTrainingTask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB3C90F22DF4D540039B32F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E29D91822F95CDD004371E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB3C90922DF4D540039B32F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E29D91C22F95CDD004371E7 /* TringappsTrainingTask1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5E29D91D22F95CDD004371E7 /* TringappsTrainingTask1Tests.swift */,
+				5E29D91F22F95CDD004371E7 /* Info.plist */,
+			);
+			path = TringappsTrainingTask1Tests;
+			sourceTree = "<group>";
+		};
 		5EB3C90322DF4D540039B32F = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +103,7 @@
 				5EC995A422F3F58900B4B1F1 /* Extensions */,
 				5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */,
 				5EB3C90E22DF4D540039B32F /* LoginScreen */,
+				5E29D91C22F95CDD004371E7 /* TringappsTrainingTask1Tests */,
 				5EB3C90D22DF4D540039B32F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */,
+				5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +176,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E29D91A22F95CDD004371E7 /* TringappsTrainingTask1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E29D92222F95CDD004371E7 /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1Tests" */;
+			buildPhases = (
+				5E29D91722F95CDD004371E7 /* Sources */,
+				5E29D91822F95CDD004371E7 /* Frameworks */,
+				5E29D91922F95CDD004371E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E29D92122F95CDD004371E7 /* PBXTargetDependency */,
+			);
+			name = TringappsTrainingTask1Tests;
+			productName = TringappsTrainingTask1Tests;
+			productReference = 5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EB3C91E22DF4D5E0039B32F /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1" */;
@@ -171,6 +221,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Tringapps;
 				TargetAttributes = {
+					5E29D91A22F95CDD004371E7 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5EB3C90B22DF4D540039B32F;
+					};
 					5EB3C90B22DF4D540039B32F = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -190,11 +244,19 @@
 			projectRoot = "";
 			targets = (
 				5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */,
+				5E29D91A22F95CDD004371E7 /* TringappsTrainingTask1Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E29D91922F95CDD004371E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB3C90A22DF4D540039B32F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +270,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E29D91722F95CDD004371E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E29D91E22F95CDD004371E7 /* TringappsTrainingTask1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5EB3C90822DF4D540039B32F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +304,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E29D92122F95CDD004371E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */;
+			targetProxy = 5E29D92022F95CDD004371E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5EB3C91322DF4D540039B32F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -254,6 +332,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5E29D92322F95CDD004371E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TringappsTrainingTask1Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.TringappsTrainingTask1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TringappsTrainingTask1.app/TringappsTrainingTask1";
+			};
+			name = Debug;
+		};
+		5E29D92422F95CDD004371E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TringappsTrainingTask1Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.TringappsTrainingTask1Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TringappsTrainingTask1.app/TringappsTrainingTask1";
+			};
+			name = Release;
+		};
 		5EB3C91C22DF4D5E0039B32F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -409,6 +527,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E29D92222F95CDD004371E7 /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E29D92322F95CDD004371E7 /* Debug */,
+				5E29D92422F95CDD004371E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5EB3C90722DF4D540039B32F /* Build configuration list for PBXProject "TringappsTrainingTask1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
