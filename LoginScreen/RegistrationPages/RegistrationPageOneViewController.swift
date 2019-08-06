@@ -231,7 +231,7 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
 
     private func checkPassWordStrength() -> Bool {
         textField_ConfirmPassword.layer.sublayers?.removeFirst()
-        let isPasswordValid = LoginFormValidation.checkPasswordStrength(enteredPassword: textField_Password, passwordStrengthIndicator: label_PasswordStrengthIndicator)
+        let isPasswordValid = LoginFormValidation.setPasswordStrength(enteredPassword: textField_Password, passwordStrengthIndicator: label_PasswordStrengthIndicator)
         if(isPasswordValid){
             textField_ConfirmPassword.isEnabled = true
         } else {

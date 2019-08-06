@@ -138,20 +138,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func isPasswordValid() -> Bool {
-        print("PassWord Field has ended")
-        let enteredPassword: String = passwordField.text!
-        let passwordValidityStatus:String? = LoginFormValidation.isPasswordValid(enteredPassword: enteredPassword)
-		guard  let passwordValidityStatusUnwrapped = passwordValidityStatus else {
-			//Password is Valid
-			passwordField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
-			errorTextView.isHidden = true
-			return true
-		}
-		//Password in Invalid
-		passwordField.setBottomBorder(withColor: Colors.DARK_RED.cgColor)
-        errorTextView.isHidden = false
-		errorTextView.text! = passwordValidityStatusUnwrapped
-		return false
+		let isPasswordValid = LoginFormValidation.setPasswordStrength(enteredPassword: passwordField, passwordStrengthIndicator: errorTextView)
+		return isPasswordValid
     }
 
 
@@ -212,6 +200,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
 		self.present(forgorPasswordAlert, animated: true, completion: nil)
 	}
+
+	@IBAction func onClickSignupButton(_ sender: Any) {
+		performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
+	}
+
 
 	@IBAction func unwindToLoginViewController(_ unwindSegue: UIStoryboardSegue) {}
 	deinit {
