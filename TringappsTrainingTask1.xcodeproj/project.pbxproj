@@ -13,6 +13,8 @@
 		5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F1AA522E5BAB10084DC9B /* UIViewDesignExtensions.swift */; };
 		5E29D91E22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */; };
 		5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F4BFB22F43D640097A202 /* Strings.swift */; };
+		5E9BD4CB22F984F7007BC94D /* RegistrationPageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD4CA22F984F7007BC94D /* RegistrationPageOne.swift */; };
+		5E9BD4D022F98D59007BC94D /* RegistrationPageValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD4CF22F98D59007BC94D /* RegistrationPageValidation.swift */; };
 		5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C90F22DF4D540039B32F /* AppDelegate.swift */; };
 		5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* LoginViewController.swift */; };
 		5EB3C91522DF4D540039B32F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91322DF4D540039B32F /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginScreen.temp_caseinsensitive_rename.swift; sourceTree = "<group>"; };
 		5E29D91F22F95CDD004371E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2F4BFB22F43D640097A202 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		5E9BD4CA22F984F7007BC94D /* RegistrationPageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageOne.swift; sourceTree = "<group>"; };
+		5E9BD4CF22F98D59007BC94D /* RegistrationPageValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageValidation.swift; sourceTree = "<group>"; };
 		5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TringappsTrainingTask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB3C90F22DF4D540039B32F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EB3C91122DF4D540039B32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -89,10 +93,19 @@
 		5E29D91C22F95CDD004371E7 /* TringappsTrainingTask1Tests */ = {
 			isa = PBXGroup;
 			children = (
+				5E9BD4C922F984AE007BC94D /* RegistrationPageTests */,
 				5E29D91D22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift */,
 				5E29D91F22F95CDD004371E7 /* Info.plist */,
 			);
 			path = TringappsTrainingTask1Tests;
+			sourceTree = "<group>";
+		};
+		5E9BD4C922F984AE007BC94D /* RegistrationPageTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E9BD4CA22F984F7007BC94D /* RegistrationPageOne.swift */,
+			);
+			path = RegistrationPageTests;
 			sourceTree = "<group>";
 		};
 		5EB3C90322DF4D540039B32F = {
@@ -140,6 +153,7 @@
 				5ED1015F22F051D70043F1F7 /* RegistrationConfirmationViewController.swift */,
 				5ED1016122F080230043F1F7 /* RegistrationDataStruct.swift */,
 				5EC995A222F3F34C00B4B1F1 /* StatusSetter.swift */,
+				5E9BD4CF22F98D59007BC94D /* RegistrationPageValidation.swift */,
 			);
 			path = RegistrationPages;
 			sourceTree = "<group>";
@@ -274,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9BD4CB22F984F7007BC94D /* RegistrationPageOne.swift in Sources */,
 				5E29D91E22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +311,7 @@
 				5EB7402B22E9D8F000C71294 /* RegistrationPageOneViewController.swift in Sources */,
 				5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */,
 				5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */,
+				5E9BD4D022F98D59007BC94D /* RegistrationPageValidation.swift in Sources */,
 				5ED1015C22F00B380043F1F7 /* RegistrationPageTwoViewController.swift in Sources */,
 				5EC995A322F3F34C00B4B1F1 /* StatusSetter.swift in Sources */,
 				5E0F1AA622E5BAB10084DC9B /* UIViewDesignExtensions.swift in Sources */,

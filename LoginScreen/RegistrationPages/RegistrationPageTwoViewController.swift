@@ -97,11 +97,7 @@ class RegistrationPageTwoViewController: UIViewController, UIImagePickerControll
         image.sourceType = UIImagePickerController.SourceType.photoLibrary
         image.allowsEditing = true
         self.present(image, animated: true){
-            self.imageView_ProfilePicture.layer.borderColor = Colors.GREEN.cgColor
-        self.error_ProfilePicture.isHidden = false
-        self.error_ProfilePicture.textColor = Colors.GREEN
-        self.error_ProfilePicture.text! = "Valid"
-            print("Image Presented")
+            print("Gallery Presented")
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -148,13 +144,15 @@ class RegistrationPageTwoViewController: UIViewController, UIImagePickerControll
     }
 
     private func checkStatus() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_Status.text!, format: "([A-Za-z\\s]){1,}")
+        let status = textField_Status.text!
+        let isValid = RegistrationPageValidation.checkStatus(status)
         StatusSetter.setStatus(forLabel: error_Status, ofTextField:textField_Status, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkAboutMe() -> Bool {
-        let isValid = textView_AboutMe.text! != ""
+        let aboutMe = textView_AboutMe.text!
+        let isValid = RegistrationPageValidation.checkTextView(aboutMe)
         StatusSetter.setStatus(forLabel: error_AboutMe, ofTextField: nil, ofTextView: textView_AboutMe, validityStatus: isValid)
         return isValid;
     }

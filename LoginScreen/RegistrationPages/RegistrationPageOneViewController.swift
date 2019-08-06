@@ -83,6 +83,7 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         textField_DateOfBirth.text = formatter.string(from: datepick.date)
+        validity_DateOfBirth = checkDateOfBirth()
     }
 
     private func setDelegates(){
@@ -194,37 +195,43 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func checkAddress() -> Bool {
-        let isValid = textView_Address.text! != ""
+        let enteredText = textView_Address.text!
+        let isValid = RegistrationPageValidation.checkTextView(enteredText)
         StatusSetter.setStatus(forLabel: error_Address, ofTextField:nil, ofTextView: textView_Address, validityStatus: isValid)
         return isValid;
     }
 
     private func checkFirstName() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_FirstName.text!, format: Regex.NAME.rawValue)
+        let enteredFirstName = textField_FirstName.text!
+        let isValid = RegistrationPageValidation.checkName(enteredFirstName)
         StatusSetter.setStatus(forLabel: error_FirstName, ofTextField:textField_FirstName, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkLastName() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_LastName.text!, format: Regex.NAME.rawValue)
+        let enteredLastName = textField_LastName.text!
+        let isValid = RegistrationPageValidation.checkName(enteredLastName)
         StatusSetter.setStatus(forLabel: error_LastName, ofTextField:textField_LastName, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkDateOfBirth() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_DateOfBirth.text!, format: Regex.DATE_OF_BIRTH.rawValue)
+        let dateOfBirth = textField_DateOfBirth.text!
+        let isValid = RegistrationPageValidation.checkDateOfBirth(dateOfBirth)
         StatusSetter.setStatus(forLabel: error_DateOfBirth, ofTextField:textField_DateOfBirth, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkEmailId() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_EmailId.text!, format: Regex.EMAIL.rawValue)
+        let email = textField_EmailId.text!
+        let isValid = RegistrationPageValidation.checkEmail(email)
         StatusSetter.setStatus(forLabel: error_EmailID, ofTextField:textField_EmailId, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
 
     private func checkPhoneNumber() -> Bool {
-        let isValid = FormatChecking.isValidFormat(textToCheck: textField_PhoneNumber.text!, format: Regex.PHONE_NUMBER.rawValue)
+        let number = textField_PhoneNumber.text!
+        let isValid = RegistrationPageValidation.checkPhoneNumber(number)
         StatusSetter.setStatus(forLabel: error_PhoneNumber, ofTextField:textField_PhoneNumber, ofTextView: nil, validityStatus: isValid)
         return isValid
     }
