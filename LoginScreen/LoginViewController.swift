@@ -138,20 +138,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     private func isPasswordValid() -> Bool {
-        print("PassWord Field has ended")
-        let enteredPassword: String = passwordField.text!
-        let passwordValidityStatus:String? = LoginFormValidation.isPasswordValid(enteredPassword: enteredPassword)
-		guard  let passwordValidityStatusUnwrapped = passwordValidityStatus else {
-			//Password is Valid
-			passwordField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
-			errorTextView.isHidden = true
-			return true
-		}
-		//Password in Invalid
-		passwordField.setBottomBorder(withColor: Colors.DARK_RED.cgColor)
-        errorTextView.isHidden = false
-		errorTextView.text! = passwordValidityStatusUnwrapped
-		return false
+		let isPasswordValid = LoginFormValidation.setPasswordStrength(enteredPassword: passwordField, passwordStrengthIndicator: errorTextView)
+		return isPasswordValid
     }
 
 
@@ -193,6 +181,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			errorTextView.isHidden = true
 			print("Changing Root View Controller as Welcome Screen")
 
+			let loginData = UserDefaults.standard
+			UserDefaults.standard.synchronize();
+			loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
+			
 			performSegue(withIdentifier: "WelcomeScreenSegueIdentifier", sender: nil)
 			return
 		}
@@ -201,21 +193,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		self.present(wrongCredentialsAlert, animated: true, completion: {self.errorTextView.isHidden = false;
 			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue})
 	}
+	
+	@IBAction func onClickForgotPassword(_ sender: UIButton) {
+		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
+		self.present(forgorPasswordAlert, animated: true, completion: nil)
+	}
 
 	@IBAction func onClickSignupButton(_ sender: Any) {
 		performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
 	}
 
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let loginData = UserDefaults.standard
-		UserDefaults.standard.synchronize();
-		loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
-	}
-
-	@IBAction func onClickForgotPassword(_ sender: UIButton) {
-		let forgorPasswordAlert = AlertCreator.createAlert(title: "ForgotPassword", message: "Work In Progress", buttonTitle: "Ok")
-		self.present(forgorPasswordAlert, animated: true, completion: nil)
-	}
 
 	@IBAction func unwindToLoginViewController(_ unwindSegue: UIStoryboardSegue) {}
 	deinit {

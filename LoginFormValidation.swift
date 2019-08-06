@@ -6,7 +6,7 @@
 //  Copyright © 2019 Tringapps. All rights reserved.
 //
 
-import Foundation
+import UIKit
 class LoginFormValidation {
 
     public class func validateAllFilds(enteredUserName:String, enteredPassword:String) -> Bool {
@@ -45,8 +45,8 @@ class LoginFormValidation {
     public class func isPasswordValid(enteredPassword:String) -> String? {
 
         if enteredPassword == "" {
-            print(LoginStatus.EMPTY_PASSWORD.rawValue)
-            return LoginStatus.EMPTY_PASSWORD.rawValue
+            print(LoginStatus.PASSWORD_EMPTY.rawValue)
+            return LoginStatus.PASSWORD_EMPTY.rawValue
         }
         let isPasswordValid: Bool
         isPasswordValid = FormatChecking.isValidFormat(textToCheck: enteredPassword, format: Regex.STRONG_PASSWORD.rawValue)
@@ -60,6 +60,27 @@ class LoginFormValidation {
     private class func authenticateAccount(_ userName:String, _ password:String) -> Bool {
         if(userName == "abc@tringapps.com" && password == "Pass@123"){
             return true
+        }
+        return false
+    }
+    
+    public class func setPasswordStrength(enteredPassword textField_Password:UITextField, passwordStrengthIndicator label_PasswordStrengthIndicator:UILabel) -> Bool {
+        let passwordStrength = LoginFormValidation.isPasswordValid(enteredPassword: textField_Password.text!)
+        label_PasswordStrengthIndicator.isHidden = false
+        guard let passwordStrengthUnwrapped = passwordStrength else {
+            label_PasswordStrengthIndicator.text! = LoginStatus.PASSWORD_STRONG.rawValue
+            label_PasswordStrengthIndicator.textColor = Colors.GREEN
+            textField_Password.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
+            return true;
+        }
+        if(passwordStrengthUnwrapped == LoginStatus.PASSWORD_EMPTY.rawValue) {
+            label_PasswordStrengthIndicator.textColor = Colors.RED
+            textField_Password.setBottomBorder(withColor: Colors.RED.cgColor)
+            label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
+        } else {
+            label_PasswordStrengthIndicator.textColor = Colors.YELLOW
+            textField_Password.setBottomBorder(withColor: Colors.YELLOW.cgColor)
+            label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
         }
         return false
     }

@@ -8,7 +8,8 @@
 
 enum LoginStatus:String {
     case PASSWORD_WEAK = "⚠️ Password is Weak";
-    case EMPTY_PASSWORD = "⚠️ Password cannot be empty"
+    case PASSWORD_STRONG = "Password is Strong"
+    case PASSWORD_EMPTY = "⚠️ Password cannot be empty"
     case USERNAME_INVALID = "⚠️ UserName is not valid"
     case ACCOUNT_NOT_FOUND = "⚠️ Account Not Found"
     case USERNAME_EMPTY = "⚠️ UserName cannot be empty"
