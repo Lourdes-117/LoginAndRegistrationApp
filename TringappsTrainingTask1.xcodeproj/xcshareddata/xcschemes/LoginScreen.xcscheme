@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5EB3C90B22DF4D540039B32F"
-               BuildableName = "Tringapps-Training-Task1.app"
-               BlueprintName = "Tringapps-Training-Task1"
-               ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+               BuildableName = "TringappsTrainingTask1.app"
+               BlueprintName = "TringappsTrainingTask1"
+               ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5EC995AE22F4326B00B4B1F1"
-               BuildableName = "Tringapps-Training-Task1UITests.xctest"
-               BlueprintName = "Tringapps-Training-Task1UITests"
-               ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+               BuildableName = "TringappsTrainingTask1UITests.xctest"
+               BlueprintName = "TringappsTrainingTask1UITests"
+               ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EB3C90B22DF4D540039B32F"
-            BuildableName = "Tringapps-Training-Task1.app"
-            BlueprintName = "Tringapps-Training-Task1"
-            ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+            BuildableName = "TringappsTrainingTask1.app"
+            BlueprintName = "TringappsTrainingTask1"
+            ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EB3C90B22DF4D540039B32F"
-            BuildableName = "Tringapps-Training-Task1.app"
-            BlueprintName = "Tringapps-Training-Task1"
-            ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+            BuildableName = "TringappsTrainingTask1.app"
+            BlueprintName = "TringappsTrainingTask1"
+            ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -92,9 +92,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EB3C90B22DF4D540039B32F"
-            BuildableName = "Tringapps-Training-Task1.app"
-            BlueprintName = "Tringapps-Training-Task1"
-            ReferencedContainer = "container:Tringapps-Training-Task1.xcodeproj">
+            BuildableName = "TringappsTrainingTask1.app"
+            BlueprintName = "TringappsTrainingTask1"
+            ReferencedContainer = "container:TringappsTrainingTask1.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
