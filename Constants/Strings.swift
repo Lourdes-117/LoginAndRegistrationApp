@@ -27,7 +27,7 @@ enum SavedVariables:String {
 }
 
 enum Regex:String {
-    case EMAIL = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    case EMAIL = "[A-Z0-9a-z._-]+@[A-Za-z]+\\.[A-Za-z]{2,64}"
     case PHONE_NUMBER = "[0-9]{10}"
     case STRONG_PASSWORD = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{8,}"
     case NAME = "([A-Za-z\\s]){1,}"
