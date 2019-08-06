@@ -230,30 +230,15 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func checkPassWordStrength() -> Bool {
-        let passwordStrength = LoginFormValidation.isPasswordValid(enteredPassword: textField_Password.text!)
-        label_PasswordStrengthIndicator.isHidden = false
-        guard let passwordStrengthUnwrapped = passwordStrength else {
-            label_PasswordStrengthIndicator.text! = "PassWord Is Strong"
-            label_PasswordStrengthIndicator.textColor = Colors.GREEN
-            textField_Password.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
-            textField_ConfirmPassword.isEnabled = true
-            textField_ConfirmPassword.layer.sublayers?.removeFirst()
-            return true;
-        }
-        textField_ConfirmPassword.isEnabled = false
         textField_ConfirmPassword.layer.sublayers?.removeFirst()
-        textField_ConfirmPassword.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
-        if(passwordStrengthUnwrapped == "⚠️ Password cannot be empty") {
-            label_PasswordStrengthIndicator.textColor = Colors.RED
-            textField_Password.setBottomBorder(withColor: Colors.RED.cgColor)
-            label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
+        let isPasswordValid = LoginFormValidation.checkPasswordStrength(enteredPassword: textField_Password, passwordStrengthIndicator: label_PasswordStrengthIndicator)
+        if(isPasswordValid){
+            textField_ConfirmPassword.isEnabled = true
         } else {
-            label_PasswordStrengthIndicator.textColor = Colors.YELLOW
-            textField_Password.setBottomBorder(withColor: Colors.YELLOW.cgColor)
-            label_PasswordStrengthIndicator.text! = passwordStrengthUnwrapped
+            textField_ConfirmPassword.setGradientBackground(startColor: Colors.LIGHT_GREY, endColor: Colors.LIGHT_GREY)
+            textField_ConfirmPassword.isEnabled = false
         }
-        return false
-
+        return isPasswordValid
     }
 
     private func checkConfirmPassword() -> Bool {
