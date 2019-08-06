@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginScreenIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreenIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="TringappsTrainingTask1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,6 +165,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" textContentType="email"/>
+                                                <connections>
+                                                    <action selector="onUserNameChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="osI-Y9-Icv"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -318,7 +321,7 @@
         <!--Registration Page One View Controller-->
         <scene sceneID="XzT-HY-LIB">
             <objects>
-                <viewController storyboardIdentifier="RegistrationPage1Identity" id="qLm-7A-rtt" customClass="RegistrationPageOneViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationPage1Identity" id="qLm-7A-rtt" customClass="RegistrationPageOneViewController" customModule="TringappsTrainingTask1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sAJ-F7-zDE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -681,7 +684,7 @@
         <!--Registration Page Two View Controller-->
         <scene sceneID="haZ-Bs-i0C">
             <objects>
-                <viewController storyboardIdentifier="RegistrationPage2Identity" modalTransitionStyle="crossDissolve" id="qNq-7n-LYa" customClass="RegistrationPageTwoViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationPage2Identity" modalTransitionStyle="crossDissolve" id="qNq-7n-LYa" customClass="RegistrationPageTwoViewController" customModule="TringappsTrainingTask1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yMU-JS-FcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -932,7 +935,7 @@
         <!--Registration Confirmation View Controller-->
         <scene sceneID="273-Yk-1Tc">
             <objects>
-                <viewController storyboardIdentifier="RegistrationConfirmationIdentity" modalTransitionStyle="crossDissolve" id="rSm-pU-8kb" customClass="RegistrationConfirmationViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationConfirmationIdentity" modalTransitionStyle="crossDissolve" id="rSm-pU-8kb" customClass="RegistrationConfirmationViewController" customModule="TringappsTrainingTask1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ROu-Kj-kKt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1234,7 +1237,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="rSu-hK-hmL">
             <objects>
-                <viewController storyboardIdentifier="WelcomeScreenIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qod-wQ-WUt" customClass="WelcomeViewController" customModule="Tringapps_Training_Task1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeScreenIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qod-wQ-WUt" customClass="WelcomeViewController" customModule="TringappsTrainingTask1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IBw-og-ChL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

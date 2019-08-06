@@ -79,9 +79,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("Touches Happening Outside TextField")
         view.endEditing(true)
-    }
+	}
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+	@IBAction func onUserNameChange(_ sender: UITextField) {
+		let enteredUsername = userNameField.text!
+		let isValid = LoginFormValidation.isUserNameValid(enteredUserName: enteredUsername)
+		if(isValid == nil){
+			passwordField.isEnabled = true
+		} else {
+			passwordField.isEnabled = false
+		}
+	}
+
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("return called")
         if(textField == self.userNameField) {
             //If it is UserName field
@@ -178,6 +188,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 		if(loginFormValidationStatus){
 			print("User Authenticated")
+			errorTextView.text = ""
 			errorTextView.isHidden = true
 			print("Changing Root View Controller as Welcome Screen")
 
@@ -191,7 +202,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 		let wrongCredentialsAlert = AlertCreator.createAlert(title: "Try Again", message: "Account not Found Found", buttonTitle: "Ok")
 		self.present(wrongCredentialsAlert, animated: true, completion: {self.errorTextView.isHidden = false;
-			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue})
+			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue
+			self.errorTextView.textColor = Colors.DARK_RED
+		})
 	}
 	
 	@IBAction func onClickForgotPassword(_ sender: UIButton) {

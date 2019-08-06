@@ -15,6 +15,7 @@
 		5E2F4BFC22F43D640097A202 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F4BFB22F43D640097A202 /* Strings.swift */; };
 		5E9BD4CB22F984F7007BC94D /* RegistrationPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD4CA22F984F7007BC94D /* RegistrationPages.swift */; };
 		5E9BD4D022F98D59007BC94D /* RegistrationPageValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD4CF22F98D59007BC94D /* RegistrationPageValidation.swift */; };
+		5E9BD4D822F9A20A007BC94D /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9BD4D722F9A20A007BC94D /* LoginScreen.swift */; };
 		5EB3C91022DF4D540039B32F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C90F22DF4D540039B32F /* AppDelegate.swift */; };
 		5EB3C91222DF4D540039B32F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB3C91122DF4D540039B32F /* LoginViewController.swift */; };
 		5EB3C91522DF4D540039B32F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB3C91322DF4D540039B32F /* Main.storyboard */; };
@@ -40,6 +41,13 @@
 			remoteGlobalIDString = 5EB3C90B22DF4D540039B32F;
 			remoteInfo = TringappsTrainingTask1;
 		};
+		5E9BD4DA22F9A20A007BC94D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EB3C90422DF4D540039B32F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB3C90B22DF4D540039B32F;
+			remoteInfo = TringappsTrainingTask1;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +61,9 @@
 		5E2F4BFB22F43D640097A202 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		5E9BD4CA22F984F7007BC94D /* RegistrationPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPages.swift; sourceTree = "<group>"; };
 		5E9BD4CF22F98D59007BC94D /* RegistrationPageValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPageValidation.swift; sourceTree = "<group>"; };
+		5E9BD4D522F9A20A007BC94D /* TringappsTrainingTask1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TringappsTrainingTask1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E9BD4D722F9A20A007BC94D /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		5E9BD4D922F9A20A007BC94D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TringappsTrainingTask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB3C90F22DF4D540039B32F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EB3C91122DF4D540039B32F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -74,6 +85,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5E29D91822F95CDD004371E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E9BD4D222F9A20A007BC94D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -108,6 +126,15 @@
 			path = RegistrationPageTests;
 			sourceTree = "<group>";
 		};
+		5E9BD4D622F9A20A007BC94D /* TringappsTrainingTask1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				5E9BD4D722F9A20A007BC94D /* LoginScreen.swift */,
+				5E9BD4D922F9A20A007BC94D /* Info.plist */,
+			);
+			path = TringappsTrainingTask1UITests;
+			sourceTree = "<group>";
+		};
 		5EB3C90322DF4D540039B32F = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +144,7 @@
 				5E0F1A9F22E5ADE30084DC9B /* LoginFormValidation.swift */,
 				5EB3C90E22DF4D540039B32F /* LoginScreen */,
 				5E29D91C22F95CDD004371E7 /* TringappsTrainingTask1Tests */,
+				5E9BD4D622F9A20A007BC94D /* TringappsTrainingTask1UITests */,
 				5EB3C90D22DF4D540039B32F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,6 +154,7 @@
 			children = (
 				5EB3C90C22DF4D540039B32F /* TringappsTrainingTask1.app */,
 				5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */,
+				5E9BD4D522F9A20A007BC94D /* TringappsTrainingTask1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,6 +237,24 @@
 			productReference = 5E29D91B22F95CDD004371E7 /* TringappsTrainingTask1Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5E9BD4D422F9A20A007BC94D /* TringappsTrainingTask1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E9BD4DE22F9A20A007BC94D /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1UITests" */;
+			buildPhases = (
+				5E9BD4D122F9A20A007BC94D /* Sources */,
+				5E9BD4D222F9A20A007BC94D /* Frameworks */,
+				5E9BD4D322F9A20A007BC94D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E9BD4DB22F9A20A007BC94D /* PBXTargetDependency */,
+			);
+			name = TringappsTrainingTask1UITests;
+			productName = TringappsTrainingTask1UITests;
+			productReference = 5E9BD4D522F9A20A007BC94D /* TringappsTrainingTask1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5EB3C91E22DF4D5E0039B32F /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1" */;
@@ -239,6 +286,10 @@
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = 5EB3C90B22DF4D540039B32F;
 					};
+					5E9BD4D422F9A20A007BC94D = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5EB3C90B22DF4D540039B32F;
+					};
 					5EB3C90B22DF4D540039B32F = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -259,12 +310,20 @@
 			targets = (
 				5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */,
 				5E29D91A22F95CDD004371E7 /* TringappsTrainingTask1Tests */,
+				5E9BD4D422F9A20A007BC94D /* TringappsTrainingTask1UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5E29D91922F95CDD004371E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E9BD4D322F9A20A007BC94D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,6 +349,14 @@
 			files = (
 				5E9BD4CB22F984F7007BC94D /* RegistrationPages.swift in Sources */,
 				5E29D91E22F95CDD004371E7 /* TestLoginScreen.temp_caseinsensitive_rename.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E9BD4D122F9A20A007BC94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E9BD4D822F9A20A007BC94D /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +392,11 @@
 			isa = PBXTargetDependency;
 			target = 5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */;
 			targetProxy = 5E29D92022F95CDD004371E7 /* PBXContainerItemProxy */;
+		};
+		5E9BD4DB22F9A20A007BC94D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB3C90B22DF4D540039B32F /* TringappsTrainingTask1 */;
+			targetProxy = 5E9BD4DA22F9A20A007BC94D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -385,6 +457,44 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TringappsTrainingTask1.app/TringappsTrainingTask1";
+			};
+			name = Release;
+		};
+		5E9BD4DC22F9A20A007BC94D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TringappsTrainingTask1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.TringappsTrainingTask1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TringappsTrainingTask1;
+			};
+			name = Debug;
+		};
+		5E9BD4DD22F9A20A007BC94D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TringappsTrainingTask1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.TringappsTrainingTask1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TringappsTrainingTask1;
 			};
 			name = Release;
 		};
@@ -548,6 +658,15 @@
 			buildConfigurations = (
 				5E29D92322F95CDD004371E7 /* Debug */,
 				5E29D92422F95CDD004371E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E9BD4DE22F9A20A007BC94D /* Build configuration list for PBXNativeTarget "TringappsTrainingTask1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E9BD4DC22F9A20A007BC94D /* Debug */,
+				5E9BD4DD22F9A20A007BC94D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TringappsTrainingTask1UITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5E9BD4D422F9A20A007BC94D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5EB3C90B22DF4D540039B32F</key>
 		<dict>
 			<key>primary</key>
