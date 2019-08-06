@@ -35,7 +35,7 @@ class RegistrationPageValidation {
     }
 
     public class func checkStatus(_ status:String) -> Bool{
-        let isValid = FormatChecking.isValidFormat(textToCheck: status, format: "([A-Za-z\\s]){1,50}")
+        let isValid = FormatChecking.isValidFormat(textToCheck: status, format: "([\\s\\S]){1,30}")
         return isValid
     }
 }
