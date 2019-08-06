@@ -202,6 +202,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			self.errorTextView.text! = LoginStatus.ACCOUNT_NOT_FOUND.rawValue})
 	}
 
+	@IBAction func onClickSignupButton(_ sender: Any) {
+		performSegue(withIdentifier: "RegistrationPageSegue", sender: self)
+	}
+
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let loginData = UserDefaults.standard
 		UserDefaults.standard.synchronize();
