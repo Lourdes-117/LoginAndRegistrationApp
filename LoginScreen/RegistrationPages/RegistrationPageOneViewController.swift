@@ -73,16 +73,20 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
     }
 
     private func initializeDatePicker(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let defaultDate = dateFormatter.date(from: "01/01/1990")
         datePicker_DateOfBirth = UIDatePicker()
         datePicker_DateOfBirth?.datePickerMode = .date
         datePicker_DateOfBirth?.addTarget(self, action: #selector(datechange(datepick:)), for: .valueChanged)
         textField_DateOfBirth.inputView = datePicker_DateOfBirth
+        datePicker_DateOfBirth?.date = defaultDate!
     }
 
     @objc func  datechange(datepick:UIDatePicker){
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        textField_DateOfBirth.text = formatter.string(from: datepick.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        textField_DateOfBirth.text = dateFormatter.string(from: datepick.date)
         validity_DateOfBirth = checkDateOfBirth()
     }
 
@@ -118,6 +122,16 @@ class RegistrationPageOneViewController: UIViewController, UITextFieldDelegate, 
         scrollView.applyViewTheme()
     }
 
+    @IBAction func onPasswordChange(_ sender: Any) {
+        let enteredPassword = textField_Password.text!
+        let isValid = LoginFormValidation.isPasswordValid(enteredPassword: enteredPassword)
+        if(isValid == nil){
+            textField_ConfirmPassword.isEnabled = true
+        } else {
+            textField_ConfirmPassword.isEnabled = false
+        }
+    }
+    
     private func appplyTopBackground() {
         let radius:CGFloat = 40
         topBackground.layer.cornerRadius = radius;

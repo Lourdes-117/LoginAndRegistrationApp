@@ -10,6 +10,11 @@ import XCTest
 
 class LoginScreen: XCTestCase {
 
+    let loginButtonIdentifier = "loginButtonIdentifier"
+    let UserNameIdentifier = "UserNameIdentifier"
+    let passwordIdentifier = "passwordIdentifier"
+    let logoutIdentifier = "logoutIdentifier"
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -32,16 +37,16 @@ class LoginScreen: XCTestCase {
 
         let elementsQuery = XCUIApplication().scrollViews.otherElements
 
-        let userNameField = elementsQuery.textFields["Enter UserName"]
+        let userNameField = elementsQuery.textFields[UserNameIdentifier]
         userNameField.tap()
         userNameField.typeText(validUserName)
 
-        let passwordField = elementsQuery.secureTextFields["Enter Password"]
+        let passwordField = elementsQuery.secureTextFields[passwordIdentifier]
         passwordField.tap()
         XCTAssertTrue(passwordField.isEnabled)
         passwordField.typeText(validPassword)
 
-        elementsQuery.buttons["LOGIN"].tap()
+        elementsQuery.buttons[loginButtonIdentifier].tap()
 
         let logOutButton = XCUIApplication().buttons["LogOut"]
         XCTAssertTrue(logOutButton.exists)
@@ -54,16 +59,16 @@ class LoginScreen: XCTestCase {
 
         let elementsQuery = XCUIApplication().scrollViews.otherElements
 
-        let userNameField = elementsQuery.textFields["Enter UserName"]
+        let userNameField = elementsQuery.textFields[UserNameIdentifier]
         userNameField.tap()
         userNameField.typeText(inValidUserName)
 
-        let passwordField = elementsQuery.secureTextFields["Enter Password"]
+        let passwordField = elementsQuery.secureTextFields[passwordIdentifier]
         passwordField.tap()
         XCTAssertTrue(passwordField.isEnabled)
         passwordField.typeText(validPassword)
 
-        elementsQuery.buttons["LOGIN"].tap()
+        elementsQuery.buttons[loginButtonIdentifier].tap()
 
         let logOutButton = XCUIApplication().buttons["LogOut"]
         XCTAssertFalse(logOutButton.exists)
@@ -76,16 +81,16 @@ class LoginScreen: XCTestCase {
 
         let elementsQuery = XCUIApplication().scrollViews.otherElements
 
-        let userNameField = elementsQuery.textFields["Enter UserName"]
+        let userNameField = elementsQuery.textFields[UserNameIdentifier]
         userNameField.tap()
         userNameField.typeText(validUserName)
 
-        let passwordField = elementsQuery.secureTextFields["Enter Password"]
+        let passwordField = elementsQuery.secureTextFields[passwordIdentifier]
         passwordField.tap()
         XCTAssertTrue(passwordField.isEnabled)
         passwordField.typeText(inValidPassword)
 
-        elementsQuery.buttons["LOGIN"].tap()
+        elementsQuery.buttons[loginButtonIdentifier].tap()
 
         let logOutButton = XCUIApplication().buttons["LogOut"]
         XCTAssertFalse(logOutButton.exists)
@@ -97,11 +102,11 @@ class LoginScreen: XCTestCase {
 
         let elementsQuery = XCUIApplication().scrollViews.otherElements
 
-        let userNameField = elementsQuery.textFields["Enter UserName"]
+        let userNameField = elementsQuery.textFields[UserNameIdentifier]
         userNameField.tap()
         userNameField.typeText(validUserName)
 
-        let passwordField = elementsQuery.secureTextFields["Enter Password"]
+        let passwordField = elementsQuery.secureTextFields[passwordIdentifier]
         passwordField.tap()
         XCTAssertFalse(passwordField.isEnabled)
     }
@@ -112,16 +117,16 @@ class LoginScreen: XCTestCase {
 
         let elementsQuery = XCUIApplication().scrollViews.otherElements
 
-        let userNameField = elementsQuery.textFields["Enter UserName"]
+        let userNameField = elementsQuery.textFields[UserNameIdentifier]
         userNameField.tap()
         userNameField.typeText(validUserName)
 
-        let passwordField = elementsQuery.secureTextFields["Enter Password"]
+        let passwordField = elementsQuery.secureTextFields[passwordIdentifier]
         passwordField.tap()
         XCTAssertTrue(passwordField.isEnabled)
         passwordField.typeText(inValidPassword)
 
-        elementsQuery.buttons["LOGIN"].tap()
+        elementsQuery.buttons[loginButtonIdentifier].tap()
 
         let logOutButton = XCUIApplication().buttons["LogOut"]
         XCTAssertFalse(logOutButton.exists)
