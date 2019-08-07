@@ -48,7 +48,7 @@ class LoginScreen: XCTestCase {
 
         elementsQuery.buttons[loginButtonIdentifier].tap()
 
-        let logOutButton = XCUIApplication().buttons["LogOut"]
+        let logOutButton = XCUIApplication().buttons[logoutIdentifier]
         XCTAssertTrue(logOutButton.exists)
         logOutButton.tap()
     }
@@ -70,7 +70,7 @@ class LoginScreen: XCTestCase {
 
         elementsQuery.buttons[loginButtonIdentifier].tap()
 
-        let logOutButton = XCUIApplication().buttons["LogOut"]
+        let logOutButton = XCUIApplication().buttons[logoutIdentifier]
         XCTAssertFalse(logOutButton.exists)
 
     }
@@ -92,7 +92,7 @@ class LoginScreen: XCTestCase {
 
         elementsQuery.buttons[loginButtonIdentifier].tap()
 
-        let logOutButton = XCUIApplication().buttons["LogOut"]
+        let logOutButton = XCUIApplication().buttons[logoutIdentifier]
         XCTAssertFalse(logOutButton.exists)
 
     }
@@ -128,7 +128,7 @@ class LoginScreen: XCTestCase {
 
         elementsQuery.buttons[loginButtonIdentifier].tap()
 
-        let logOutButton = XCUIApplication().buttons["LogOut"]
+        let logOutButton = XCUIApplication().buttons[logoutIdentifier]
         XCTAssertFalse(logOutButton.exists)
     }
 }

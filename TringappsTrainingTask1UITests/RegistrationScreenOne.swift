@@ -8,7 +8,7 @@
 
 import XCTest
 
-class RegistrationScreen: XCTestCase {
+class RegistrationScreenOne: XCTestCase {
 
     let signUpIdentifier = "signupIdentifier"
 
@@ -32,6 +32,11 @@ class RegistrationScreen: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        let logOutButton = XCUIApplication().buttons["logoutIdentifier"]
+        if(logOutButton.exists){
+            logOutButton.tap()
+        }
+        XCTAssertFalse(logOutButton.exists)
     }
 
     override func tearDown() {
@@ -273,7 +278,7 @@ class RegistrationScreen: XCTestCase {
         let status = XCUIApplication().scrollViews.otherElements.staticTexts["Status"]
         XCTAssertFalse(status.exists)
     }
-    
+
     func testInValidEmail(){
 
         //InValidInvalidTestCase 3

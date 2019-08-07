@@ -20,8 +20,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		userNameField.text = ""
+		userNameField.text = nil
 		passwordField.text = ""
+		errorTextView.text = ""
+		errorTextView.isHidden = true
+		userNameField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
+		passwordField.setBottomBorder(withColor: Colors.DARK_BLUE.cgColor)
+		applyPasswordFieldDisabledDesign()
 		print("Login View Will Appear")
 	}
 
@@ -188,13 +193,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 		if(loginFormValidationStatus){
 			print("User Authenticated")
-			errorTextView.text = ""
-			errorTextView.isHidden = true
-			print("Changing Root View Controller as Welcome Screen")
+			print("Performing Segue for Welcome Screen")
 
 			let loginData = UserDefaults.standard
 			UserDefaults.standard.synchronize();
 			loginData.set(userNameField.text!, forKey: SavedVariables.LOGGED_IN_USERNAME.rawValue)
+			loginData.synchronize()
 			
 			performSegue(withIdentifier: "WelcomeScreenSegueIdentifier", sender: nil)
 			return
