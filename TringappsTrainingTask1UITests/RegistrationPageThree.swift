@@ -55,6 +55,9 @@ class RegistrationScreenThree: XCTestCase {
         let aboutMeIdentifier = "aboutMeIdentifier"
         let registerIdentifier = "registerIdentifier"
 
+        let app = XCUIApplication()
+        let scrollViewsQuery = app.scrollViews
+        elementsQuery = scrollViewsQuery.otherElements
         elementsQuery.buttons[signUpIdentifier].tap()
 
         let firstName = elementsQuery.textFields[firstNameIdentifier]
@@ -95,15 +98,16 @@ class RegistrationScreenThree: XCTestCase {
         address.typeText(addressString)
 
         elementsQuery.buttons[continueButtonIdentifier].tap()
-
+        
         let statusString = "This is a Valid Status"
         let aboutMeString = "This text is a Valid About Me. This will work"
-        let elementsQuery = XCUIApplication().scrollViews.otherElements
+        elementsQuery = XCUIApplication().scrollViews.otherElements
         let imageImport = elementsQuery.buttons[imageImportIdentifier]
         imageImport.tap()
         sleep(15)
         app.cells["Camera Roll"].tap()
         app.collectionViews["PhotosGridView"].children(matching: .cell).element(boundBy: 1).tap()
+        sleep(1)
 
         let status = elementsQuery.textFields[statusIdentifier]
         status.tap()

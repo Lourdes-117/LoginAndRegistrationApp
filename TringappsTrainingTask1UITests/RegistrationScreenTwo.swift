@@ -107,7 +107,7 @@ class RegistrationScreenTwo: XCTestCase {
         sleep(15)
         app.cells["Camera Roll"].tap()
         app.collectionViews["PhotosGridView"].children(matching: .cell).element(boundBy: 1).tap()
-
+        sleep(1)
         let status = elementsQuery.textFields[statusIdentifier]
         status.tap()
         status.typeText(statusString)
@@ -160,6 +160,7 @@ class RegistrationScreenTwo: XCTestCase {
         sleep(15)
         app.cells["Camera Roll"].tap()
         app.collectionViews["PhotosGridView"].children(matching: .cell).element(boundBy: 1).tap()
+        sleep(1)
 
         let status = elementsQuery.textFields[statusIdentifier]
         status.tap()
@@ -190,6 +191,7 @@ class RegistrationScreenTwo: XCTestCase {
         sleep(15)
         app.cells["Camera Roll"].tap()
         app.collectionViews["PhotosGridView"].children(matching: .cell).element(boundBy: 1).tap()
+        sleep(1)
 
         let status = elementsQuery.textFields[statusIdentifier]
         status.tap()
